@@ -1,0 +1,38 @@
+---
+title: "Connect to the Blockchain"
+---
+
+You can also use the Bitski SDK without a user wallet to read content from the
+blockchain. This can be useful to display data before the user logs in, or for
+basic applications that don't require a user wallet.
+
+This feature is built into all Bitski SDKs. Just initialize the SDK as normal.
+You will then be able to make read-only calls without signing in.
+
+---
+
+## Other SDKs
+
+You can also use the Bitski node infrastructure separately from our SDK. All you
+need is a client ID from the [developer portal](https://developer.bitski.com/).
+Simply include your client ID as the X-API-Key header:
+
+```js JavaSCript
+var Web3HttpProvider = require("web3-providers-http");
+
+var options = {
+  headers: [{ name: "X-API-Key", value: "<YOUR CLIENT ID>" }],
+};
+
+var provider = new Web3HttpProvider(
+  "https://api.bitski.com/v1/web3/mainnet",
+  options
+);
+```
+
+<Note>
+Want more?
+
+For more details, check out the [Web3 Reference](/reference/web3-get-started).
+
+</Note>
