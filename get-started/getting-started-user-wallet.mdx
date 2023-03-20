@@ -1,0 +1,67 @@
+---
+title: "Get Started"
+---
+
+### Create an app
+
+All apps that use Bitski need to be registered in our Developer Portal. We do
+this to keep track of permissions a user grants you.
+
+To register: visit our [developer portal](https://developer.bitski.com), then
+click _New App_.
+
+Once registered, you can select your new app from the list. You should now be
+able to see your client id.
+
+### Configure your client settings
+
+Once you create your app, you'll need to configure the OAuth settings for it.
+You can do this from the OAuth tab under your app details page in the developer
+portal.
+
+The most important setting here is the redirect url(s). We use this to ensure
+that only the domains you approve can get access tokens for your client id.
+
+See Client Settings for more information on all these settings, .
+
+### Integrate with your app
+
+Now that you have a configured your app on Bitski, you can start using our SDKs
+in your app.
+
+A great place to start for new web-based apps is our Quickstart Truffle Box.
+
+You can find more details on integrating with your app by reviewing the
+instructions for the particular SDK you're using:
+
+- [JavaScript](https://github.com/BitskiCo/bitski-js)
+- [iOS](https://github.com/BitskiCo/bitski-ios)
+
+For web-based apps, you'll need to be able to respond to the callback from our
+servers.
+
+It's also important to consider the user experience for the various states your
+user will be in. Our SDKs can tell you whether or not the user is currently
+logged in. You should then update your UI based on that information.
+
+### TLDR
+
+```js JavaScript
+import { Bitski } from "bitski";
+import Web3 from "web3";
+
+// Host https://github.com/BitskiCo/bitski-js/blob/main/packages/browser/callback.html on https://myapp.com/callback.html
+const bitski = new Bitski("CLIENT-ID", "https://myapp.com/callback.html");
+
+const provider = bitski.getProvider();
+const web3 = new Web3(provider);
+
+// public calls are always available
+const network = await web3.eth.getBlockNumber();
+
+// connect via oauth to use the wallet (call this from a click handler)
+await bitski.signIn();
+
+// now you can get accounts
+const accounts = await web3.eth.getAccounts();
+```
