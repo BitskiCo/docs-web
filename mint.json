@@ -144,7 +144,7 @@
         {
           "group": "Activity API",
           "pages": [
-            "wallet-as-a-service/activity-api/blank"
+            "wallet-as-a-service/activity-api/activity-api"
           ]
         },
         {
@@ -156,13 +156,19 @@
         {
           "group": "Notifications API",
           "pages": [
-            "wallet-as-a-service/notifications-api/blank"
+            "wallet-as-a-service/notifications-api/notifications-api"
+          ]
+        },
+        {
+          "group": "Portfolio API",
+          "pages": [
+            "wallet-as-a-service/portfolio-api/portfolio-api"
           ]
         },
         {
           "group": "Signing API",
           "pages": [
-            "wallet-as-a-service/signing-api/blank"
+            "wallet-as-a-service/signing-api/signing-api"
           ]
         },
         {
