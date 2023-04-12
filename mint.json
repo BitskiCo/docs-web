@@ -28,181 +28,159 @@
   ],
   "anchors": [
     {
-      "name": "API Reference",
+      "name": "Wallet as a Service (WaaS)",
       "icon": "square-terminal",
-      "url": "https://reference.bitski.com/reference/get-started-apis"
+      "url": "wallet-as-a-service"
     },
     {
-      "name": "Recipes",
-      "icon": "map",
-      "url": "https://reference.bitski.com/recipes"
+      "name": "Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/bitski"
     },
     {
-      "name": "Integration Examples",
-      "icon": "plug",
-      "url": "https://github.com/bitskico/bitski-js#quickstart"
-    },
-    {
-      "name": "Community",
+      "name": "Discord",
       "icon": "discord",
       "url": "https://discord.com/invite/bitski"
-    },
-    {
-      "name": "GitHub",
-      "icon": "github",
-      "url": "https://github.com/BitskiCo/bitski-js"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["explore-products", "get-started/what-is-a-bitski-wallet"]
+      "pages": ["explore-products", "bitski/what-is-a-bitski-vault"]
     },
     {
-      "group": "Get Started",
+      "group": "Build With Bitski",
       "pages": [
-        "get-started/get-started",
-        "get-started/billing-payouts",
-        "get-started/your-collections",
-        "get-started/launching-your-nft"
+        "build-with-bitski/introduction",
+        {
+          "group": "Setup as a Developer",
+          "pages": [
+            "build-with-bitski/get-started/authentication",
+            "build-with-bitski/get-started/configure-app-settings",
+            "build-with-bitski/get-started/connect-user-wallets"
+          ]
+        },
+        "build-with-bitski/requests",
+        "build-with-bitski/pagination",
+        {
+          "group": "Web3",
+          "pages": [
+            "build-with-bitski/web-3/web3-get-started",
+            "build-with-bitski/web-3/json-rpc-support",
+            "build-with-bitski/web-3/using-operators",
+            "build-with-bitski/web-3/transaction-operator"
+          ]
+        },
+        {
+          "group": "SDK",
+          "pages": [
+            "build-with-bitski/sdk/sdk-overview",
+            "build-with-bitski/sdk/verify-a-users-wallet"
+          ]
+        },
+        {
+          "group": "Recipes",
+          "pages": [
+            "recipes/get-access-token",
+            "recipes/create-nft-contract",
+            "recipes/create-token-template",
+            "recipes/deploy-nft-contract",
+            "recipes/developers-first-steps-on-bitski"
+          ]
+        },
+        "build-with-bitski/faq"
       ]
     },
     {
-      "group": "Sell NFTs",
-      "pages": [
-        "get-started/publish-your-nft",
-        "get-started/embed-your-product",
-        "get-started/sell-an-nft-in-your-app-or-game",
-        "get-started/droplinks",
-        "get-started/create-a-custom-drop-page"
-      ]
-    },
-    {
-      "group": "Build Apps",
+      "group": "Use Cases",
       "pages": [
         {
-          "group": "User Wallet Overview",
+          "group": "Build a Marketplace",
           "pages": [
-            "get-started/user-wallet-overview",
-            "get-started/getting-started-user-wallet",
-            "get-started/connect-user-wallets",
-            "get-started/configure-app-settings",
-            "get-started/verify-a-users-wallet"
+            {
+              "group": "Marketplace APIs",
+              "pages": [
+                "use-cases/build-a-marketplace/marketplace-apis/create-a-contract",
+                "use-cases/build-a-marketplace/marketplace-apis/get-a-contract",
+                "use-cases/build-a-marketplace/marketplace-apis/update-a-contract",
+                "use-cases/build-a-marketplace/marketplace-apis/get-all-contracts",
+                "use-cases/build-a-marketplace/marketplace-apis/get-contracts-templates",
+                "use-cases/build-a-marketplace/marketplace-apis/create-a-token",
+                "use-cases/build-a-marketplace/marketplace-apis/create-token-template",
+                "use-cases/build-a-marketplace/marketplace-apis/get-token-template",
+                "use-cases/build-a-marketplace/marketplace-apis/update-token-template",
+                "use-cases/build-a-marketplace/marketplace-apis/get-all-products",
+                "use-cases/build-a-marketplace/marketplace-apis/get-a-single-product"
+              ]
+            },
+            "use-cases/build-a-marketplace/get-started",
+            "use-cases/build-a-marketplace/billing-payouts",
+            "use-cases/build-a-marketplace/your-collections",
+            "use-cases/build-a-marketplace/launching-your-nft"
           ]
         },
         {
-          "group": "Enterprise Wallets",
+          "group": "Droplinks",
           "pages": [
-            "get-started/get-started-blockchain-services",
-            "get-started/enterprise-wallet",
-            "get-started/whitelabel-wallet"
+            "use-cases/droplinks/droplinks",
+            "use-cases/droplinks/create-a-custom-drop-page"
           ]
         },
         {
-          "group": "Sending Transactions Overview",
+          "group": "Custom Wallets",
           "pages": [
-            "get-started/sending-transactions-overview",
-            "get-started/using-operators",
-            "get-started/transaction-operator"
-          ]
-        },
-        "get-started/connect-to-the-blockchain",
-        "get-started/faq"
-      ]
-    },
-    {
-      "group": "Docs",
-      "pages": [
-        {
-          "group": "Get Started",
-          "pages": [
-            "reference/get-started-apis",
-            "reference/developers-first-steps-on-bitski"
-          ]
-        },
-        "reference/authentication",
-        "reference/requests",
-        "reference/pagination"
-      ]
-    },
-    {
-      "group": "Blockchain APIs",
-      "pages": [
-        "reference/blockchain-apis",
-        {
-          "group": "Contracts",
-          "pages": [
-            "reference/get-all-contracts",
-            "reference/create-a-contract",
-            "reference/get-contracts-templates",
-            "reference/get-a-contract",
-            "reference/update-a-contract"
-          ]
-        },
-        {
-          "group": "Token Templates",
-          "pages": [
-            "reference/create-token-template",
-            "reference/get-token-template",
-            "reference/update-token-template"
-          ]
-        },
-        {
-          "group": "Tokens",
-          "pages": [
-            "reference/get-all-tokens",
-            "reference/create-a-token",
-            "reference/get-metadata",
-            "reference/update-metadata"
+            "use-cases/custom-wallets/wallet-overview",
+            "use-cases/custom-wallets/enterprise-wallet",
+            "use-cases/custom-wallets/whitelabel-wallet"
           ]
         }
       ]
     },
     {
-      "group": "Product APIs",
+      "group": "Wallet as a Service (WaaS)",
       "pages": [
-        "reference/product-apis",
+        "wallet-as-a-service/wallet-as-a-service",
         {
-          "group": "Products",
+          "group": "Activity API",
           "pages": [
-            "reference/get-all-products",
-            "reference/get-a-single-product"
+            "wallet-as-a-service/activity-api/blank"
+          ]
+        },
+        {
+          "group": "Balances API",
+          "pages": [
+            "wallet-as-a-service/balances-api/get-balances"
+          ]
+        },
+        {
+          "group": "Notifications API",
+          "pages": [
+            "wallet-as-a-service/notifications-api/blank"
+          ]
+        },
+        {
+          "group": "Signing API",
+          "pages": [
+            "wallet-as-a-service/signing-api/blank"
+          ]
+        },
+        {
+          "group": "Token Details API",
+          "pages": [
+            "wallet-as-a-service/token-details-api/get-contract-metadata",
+            "wallet-as-a-service/token-details-api/get-metadata",
+            "wallet-as-a-service/token-details-api/get-owners",
+            "wallet-as-a-service/token-details-api/get-token-metadata",
+            "wallet-as-a-service/token-details-api/update-metadata"
+          ]
+        },
+          {
+          "group": "User API",
+          "pages": [
+            "wallet-as-a-service/user-api/get-a-public-profile"
           ]
         }
       ]
-    },
-    {
-      "group": "Account APIs",
-      "pages": [
-        "reference/user-apis",
-        {
-          "group": "Profiles",
-          "pages": ["reference/get-a-public-profile"]
-        },
-        {
-          "group": "Ownership",
-          "pages": ["reference/get-balances", "reference/get-owners"]
-        },
-        {
-          "group": "Metadata",
-          "pages": [
-            "reference/get-token-metadata",
-            "reference/get-contract-metadata"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Web3",
-      "pages": ["reference/web3-get-started", "reference/json-rpc-support"]
-    },
-    {
-      "group": "SDKs",
-      "pages": ["reference/sdk-overview"]
-    },
-    {
-      "group": "Recipes",
-      "pages": ["recipes/get-access-token", "recipes/create-token-template", "recipes/create-nft", "recipes/create-nft-contract", "recipes/deploy-nft-contract"]
     }
   ],
   "footerSocials": {
