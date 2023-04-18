@@ -1,0 +1,70 @@
+---
+title: "GET Collections"
+api: "GET https://api.bitski.com/v1/apps/{appId}/contracts"
+description: "Create collections on dedicated or shared contracts across chains"
+---
+
+### Path
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+### Parameters
+<ParamField query="includeTokenTemplates" type="boolean" optional>
+  Whether to include token templates in the response.
+</ParamField>
+
+<ParamField query="isDeployed" type="boolean" optional>
+  Filter by deployment status.
+</ParamField>
+
+<ParamField query="includeWatched" type="boolean" optional>
+  Filter by access type.
+</ParamField>
+
+### Response 
+<ParamField body="contracts" type="array of objects" required>
+  <Expandable>
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="deploymentState" type="string" required/>
+    <ResponseField name="address" type="string" required/>
+    <ResponseField name="network" type="string" required/>
+    <ResponseField name="name" type="string" />
+    <ResponseField name="description" type="string" />
+    <ResponseField name="contractType" type="string">
+      One of `UNKNOWN`, `NON_FUNGIBLE_AUCTION`, `NON_FUNGIBLE`, `SEMI_FUNGIBLE`, `ZORA_AUCTION`
+    </ResponseField>
+    <ResponseField name="tokenTemplates" type="array" />
+    <ResponseField name="fee" type="number" />
+    <ResponseField name="accessType" type="string" required>
+      One of `OWNED`, `WATCHED`
+    </ResponseField>
+  </Expandable>
+</ParamField>
+
+<ParamField body= "error" type="object" required >
+  <Expandable>
+    <ResponseField name="message" type="string" />
+  </Expandable>
+</ParamField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "contracts": [
+    {
+      "id": "91cd06a3-5d63-4597-8d5d-8b422c6dcd74",
+      "deploymentState": "DEPLOYED",
+      "address": "0xedd787463f481c446129495ea4030d117308c9a1",
+      "network": "polygon",
+      "name": "LVMH Event The Sandbox Airdrop",
+      "description": null,
+      "contractType": "SEMI_FUNGIBLE",
+      "tokenTemplates": [],
+      "fee": "0",
+      "accessType": "OWNED"
+    }
+  ]
+}
+```
+</ResponseExample>
