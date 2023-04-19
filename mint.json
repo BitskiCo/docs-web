@@ -77,6 +77,12 @@
             "wallet-as-a-service/nft-apis/post-v1-payments",
             "wallet-as-a-service/nft-apis/miscellaneous"
           ]
+        },
+        {
+          "group": "SDK",
+          "pages": [
+            "integrations/sdk/sdk-overview"
+          ]
         }
       ]
     },
@@ -98,12 +104,6 @@
           "pages": [
             "integrations/web-3/web3-get-started",
             "integrations/web-3/json-rpc-support"
-          ]
-        },
-        {
-          "group": "SDK",
-          "pages": [
-            "integrations/sdk/sdk-overview"
           ]
         },
         "integrations/faq",
