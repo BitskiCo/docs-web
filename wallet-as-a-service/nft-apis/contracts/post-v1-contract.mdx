@@ -1,0 +1,73 @@
+---
+title: "POST Contract"
+description: "Create collections on dedicated or shared contracts across chains"
+---
+
+<Note>This API requires the `apps` scope</Note>
+
+Create collections or contracts via the Bitski minting infrastructure.
+
+<RequestExample>
+
+```bash Request
+curl -X 'POST' \
+  'https://api.bitski.com/v1/apps/<APP_ID>/contracts' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  -d '{
+  "contract": {
+    "description": "A collection of bird NFTs",
+    "externalLink": "www.bitski.com/@stapleverse",
+    "name": "My Contract",
+    "network": "mainnet",
+    "symbol": "BIRD",
+    "contractType": "SEMI_FUNGIBLE"
+  }
+}'
+```
+
+</RequestExample>
+
+### Response
+
+<ResponseField name="contracts" type="array of objects" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="deploymentState" type="string" required/>
+    <ResponseField name="externalLink" type="string" required/>
+    <ResponseField name="address" type="string" required/>
+    <ResponseField name="network" type="string" required/>
+    <ResponseField name="name" type="string" />
+    <ResponseField name="description" type="string" />
+    <ResponseField name="contractType" type="string">
+      One of `UNKNOWN`, `NON_FUNGIBLE_AUCTION`, `NON_FUNGIBLE`, `SEMI_FUNGIBLE`, `ZORA_AUCTION`
+    </ResponseField>
+    <ResponseField name="tokenTemplates" type="array of objects" />
+    <ResponseField name="fee" type="number" />
+    <ResponseField name="accessType" type="string" required>
+      One of `OWNED`, `WATCHED`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "contract": {
+    "contractType": "SEMI_FUNGIBLE",
+    "tokenTemplates": [],
+    "accessType": "OWNED",
+    "address": "0x8b53d6e704485ef70bd02e2a91df126935a127c9",
+    "deploymentState": "DEPLOYED",
+    "symbol": "BIRD",
+    "description": "A collection of bird NFTs",
+    "externalLink": "https://www.bitski.com/@Stapleverse",
+    "fee": "25.00",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "name": "My NFT Collection",
+    "network": "mainnet"
+  }
+}
+```
+</ResponseExample>

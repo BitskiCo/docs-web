@@ -1,0 +1,89 @@
+---
+title: "GET Contract"
+api: "GET https://api.bitski.com/v1/apps/{appId}/contracts/{contractId}"
+authMethod: "bearer"
+description: "Get collection or contract details"
+---
+
+<Note>This API requires the `apps` scope</Note>
+
+### Path
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+<ParamField path="contractId" type="string" required>
+  The contract id
+</ParamField>
+
+### Response
+
+<ResponseField name="contracts" type="array of objects" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="deploymentState" type="string" required/>
+    <ResponseField name="externalLink" type="string" required/>
+    <ResponseField name="address" type="string" required/>
+    <ResponseField name="network" type="string" required/>
+    <ResponseField name="name" type="string" />
+    <ResponseField name="description" type="string" />
+    <ResponseField name="contractType" type="string">
+      One of `UNKNOWN`, `NON_FUNGIBLE_AUCTION`, `NON_FUNGIBLE`, `SEMI_FUNGIBLE`, `ZORA_AUCTION`
+    </ResponseField>
+    <ResponseField name="tokenTemplates" type="array of objects" />
+    <ResponseField name="fee" type="number" />
+    <ResponseField name="accessType" type="string" required>
+      One of `OWNED`, `WATCHED`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "contracts": [
+    {
+      "contractType": "NON_FUNGIBLE",
+      "tokenTemplates": [
+        {
+          "animationUrl": null,
+          "contractId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "defaultMetadata": {},
+          "delayMinting": true,
+          "description": "A great token",
+          "gatedContent": [],
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+          "isDropLink": true,
+          "liveAt": "2023-04-19T23:51:57.705Z",
+          "maxTokens": 100,
+          "name": "Bird NFT",
+          "namingTemplate": "DEFAULT",
+          "payouts": {},
+          "previewAt": "2023-04-19T23:51:57.705Z",
+          "prices": [
+            {
+              "currency": "USD",
+              "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+              "price": "200.00"
+            }
+          ],
+          "published": true,
+          "salesEndAt": "2023-04-19T23:51:57.705Z",
+          "totalTokens": 57
+        }
+      ],
+      "accessType": "OWNED",
+      "address": "0x8b53d6e704485ef70bd02e2a91df126935a127c9",
+      "deploymentState": "DEPLOYED",
+      "description": "A collection of great NFTs",
+      "externalLink": "https://www.bitski.com/@Stapleverse",
+      "fee": "25.00",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "name": "My NFT Collection",
+      "network": "mainnet"
+    }
+  ]
+}
+```
+</ResponseExample>

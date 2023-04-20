@@ -1,0 +1,49 @@
+---
+title: "GET Store"
+api: "GET https://api.bitski.com/v1/stores/{storeId}"
+description: "Get details about a storefront."
+---
+
+<ParamField path="storeId" type="string" default="8df663d2-b7b3-48c6-bb31-ec34258c9a77" required>
+  The store id
+</ParamField>
+
+[![Example](/assets/images/store-51649e2b4dd98a973f538b2a84112ba.png "See store example")](https://www.bitski.com/@candy/created)
+
+### Response
+
+<ResponseField name="store" type="array of objects" required>
+  <Expandable>
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="application" type="string" required/>
+    <ResponseField name="username" type="string" required/>
+    <ResponseField name="title" type="string" required/>
+    <ResponseField name="description" type="string" required/>
+    <ResponseField name="processor" type="string" required/>
+    <ResponseField name="processorApiKey" type="string"/>
+    <ResponseField name="processorLogoUri" type="string"/>
+    <ResponseField name="backgroundImageUri" type="string"/>
+    <ResponseField name="themeUrl" type="string"/>
+    <ResponseField name="socialLinks" type="object"/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "store": {
+    "application": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "backgroundImageUri": null,
+    "description": "Curating the best bird related NFTs",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "processor": "Stripe",
+    "processorApiKey": "pk_test_TYooMQauvdEDq54NiTphI7jx",
+    "processorLogoUri": "https://cdn.bitskistatic.com/processors/stripe.svg",
+    "socialLinks": {},
+    "themeUrl": null,
+    "title": "Bird Store",
+    "username": "bird_fans"
+  }
+}
+```
+</ResponseExample>

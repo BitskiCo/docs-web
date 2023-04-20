@@ -70,11 +70,27 @@
         {
           "group": "NFT APIs",
           "pages": [
-            "wallet-as-a-service/nft-apis/get-v1-products",
-            "wallet-as-a-service/nft-apis/get-v1-collections",
+            {
+              "group": "Contract APIs",
+              "pages": [
+                "wallet-as-a-service/nft-apis/contracts/get-v1-contract",
+                "wallet-as-a-service/nft-apis/contracts/get-v1-contracts",
+                "wallet-as-a-service/nft-apis/contracts/patch-v1-contract",
+                "wallet-as-a-service/nft-apis/contracts/post-v1-contract"
+              ]
+            },
+            {
+              "group": "Commerce APIs",
+              "pages": [
+                "wallet-as-a-service/nft-apis/commerce/get-v1-product",
+                "wallet-as-a-service/nft-apis/commerce/get-v1-products",
+                "wallet-as-a-service/nft-apis/commerce/get-v1-auction",
+                "wallet-as-a-service/nft-apis/commerce/get-v1-store",
+                "wallet-as-a-service/nft-apis/commerce/post-v1-payments"
+              ]
+            },
             "wallet-as-a-service/nft-apis/get-v1-droplinks",
             "wallet-as-a-service/nft-apis/get-v1-token-gates",
-            "wallet-as-a-service/nft-apis/post-v1-payments",
             "wallet-as-a-service/nft-apis/miscellaneous"
           ]
         },

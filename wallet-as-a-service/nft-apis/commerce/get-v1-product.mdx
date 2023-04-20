@@ -1,0 +1,130 @@
+---
+title: "GET Product"
+api: "GET https://api.bitski.com/v1/products/{productId}"
+description: "Get details about a product."
+---
+
+<ParamField path="productId" type="string" default="d0158741-f7d4-41a8-8a38-b652d8d43d5c" required>
+  The product id
+</ParamField>
+
+[![Example product](/assets/images/product-8da5ccf6d059237556205b7d3ab7b552.png "See product example")](https://www.bitski.com/@Stapleverse/products/staple-x-crocs-d0158741-f7d4-41a8-8a38-b652d8d43d5c)
+
+### Response
+
+<ResponseField name="product" type="Product object" required>
+  <Expandable>
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="network" type="string" required/>
+    <ResponseField name="tokenContractAddress" type="string" required/>
+    <ResponseField name="tokenMetadata" type="" required>
+      <Expandable>
+        <ResponseField name="image" type="string" />
+        <ResponseField name="description" type="string" />
+        <ResponseField name="name" type="string" />
+        <ResponseField name="animation_url" type="string" />
+        <ResponseField name="properties" type="object" />
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="gatedContenct" type="array" required>
+      Includes `CUSTOM_FILE`, `FULL_RESOLUTION_IMAGE`
+    </ResponseField>
+    <ResponseField name="totalAvailable" type="number" required/>
+    <ResponseField name="totalSold" type="number" required/>
+    <ResponseField name="prices" type="array of objects" required>
+      <Expandable>
+        <ResponseField name="id" type="string" />
+        <ResponseField name="currency" type="string" />
+        <ResponseField name="price" type="string" />
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="auctions" type="array of objects" required>
+      <Expandable>
+        <ResponseField name="id" type="string" />
+        <ResponseField name="tokenId" type="string" />
+        <ResponseField name="auctionContractId" type="string" />
+        <ResponseField name="startsAt" type="date-time" />
+        <ResponseField name="endsAt" type="date-time" />
+        <ResponseField name="status" type="string" />
+        <ResponseField name="info" type="object">
+          <Expandable>
+            <ResponseField name="id" type="string" />
+            <ResponseField name="tokenMetadata" type="object">
+              <Expandable>
+                <ResponseField name="image" type="string" />
+                <ResponseField name="description" type="string" />
+                <ResponseField name="name" type="string" />
+                <ResponseField name="animation_url" type="string" />
+                <ResponseField name="properties" type="object" />
+              </Expandable>
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="bids" type="array of objects">
+          <Expandable>
+            <ResponseField name="id" type="string" />
+            <ResponseField name="createdAt" type="date-time" />
+            <ResponseField name="auctionId" type="string" />
+            <ResponseField name="currency" type="string" />
+            <ResponseField name="amount" type="string" />
+            <ResponseField name="username" type="string" />
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="automaticSettlement" type="boolean" />
+        <ResponseField name="ended" type="boolean" />
+        <ResponseField name="minBid" type="string" />
+        <ResponseField name="currency" type="string" />
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="createdAt" type="date-time" required/>
+    <ResponseField name="liveAt" type="date-time" required/>
+    <ResponseField name="previewAt" type="date-time" required/>
+    <ResponseField name="salesEndAt" type="date-time" required/>
+    <ResponseField name="username" type="string" required/>
+    <ResponseField name="purchaseLink" type="string" required/>
+    <ResponseField name="saleType" type="string" required>
+      One of `EDITION`, `LIMITED_EDITION`, `OPEN_EDITION`, `AUCTION`, `OFF_CHAIN_AUCTION`, `ON_CHAIN_AUCTION`
+    </ResponseField>
+    <ResponseField name="isGated" type="boolean" required />
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "product": {
+    "id": "d0158741-f7d4-41a8-8a38-b652d8d43d5c",
+    "network": "mainnet",
+    "tokenContractAddress": "0x2df7bedb3cf02c948e129d68bbd6c12209150604",
+    "tokenMetadata": {
+      "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+      "description": "A very special NFT for a very special partnership! To celebrate our recent collaboration with STAPLE & Crocs, we are launching one hundred & twenty-three (123) NFTs on April 15th exclusively on Bitski. Proceeds from sales of the NFT will be donated to NYC & Co — who’s mission is to maximize opportunities throughout NYC & build economic prosperity. All holders of the NFT will be able to redeem a pair of the highly sought after physical STAPLE x Crocs clogs for free!\nThe Classic Clog gets an NYC update with a Pigeon-stained sidewalk motif. The lightweight, water-friendly and buoyant clog is designed with a custom Pigeon logo rivet, ventilation ports to add breathability and help shed water and debris, pivoting heal strap for a more secure fit, and multiple custom Jibbitz™ including: Pigeon feet, a book of matches, sewer alligator with pizza, a coffee cup, a cockroach, chewing gum, a rat, and the Pigeon mascot. Available in Men's size 4-13, no half sizes.\n\nTo qualify for physical shoe redemption, you must be hodling the Crocs NFT at 4/20 at 4:20pm.\n\nTerms and Conditions: https://bit.ly/3wxZ37c",
+      "name": "STAPLE x Crocs",
+      "properties": {
+        "NrG Pigeon": "Crocs"
+      }
+    },
+    "gatedContent": [],
+    "totalAvailable": 123,
+    "totalSold": 123,
+    "prices": [
+      {
+        "id": "bb33223c-8432-44c4-a4f2-1c216bb1d346",
+        "currency": "USD",
+        "price": "321"
+      }
+    ],
+    "auctions": [],
+    "createdAt": "2022-04-11T15:57:19.197066Z",
+    "liveAt": "2022-04-15T16:00:00Z",
+    "previewAt": null,
+    "salesEndAt": null,
+    "username": "Stapleverse",
+    "purchaseLink": "https://www.bitski.com/Stapleverse/products/d0158741-f7d4-41a8-8a38-b652d8d43d5c",
+    "saleType": "LIMITED_EDITION",
+    "isGated": false
+  },
+  "gates": []
+}
+```
+</ResponseExample>
