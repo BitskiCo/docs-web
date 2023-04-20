@@ -1,0 +1,57 @@
+---
+title: "GET Fulfillment"
+api: "GET https://api.bitski.com/v1/app/{appId}/fulfillments/{fulfillmentId}"
+authMethod: "bearer"
+description: "Get fulfillment details"
+---
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+Get details about a given fulfillment.
+
+![Example](/assets/images/fulfillment-a1c500bae89cda3612a85b6d2ce335da.jpeg "Fulfilled Order")
+
+### Path
+
+<ParamField path="appId" type="string" required>
+  Your Bitski application id
+</ParamField>
+
+<ParamField path="fulfillmentId" type="string" required>
+  The id of the fulfillment
+</ParamField>
+
+### Response
+
+<ResponseField name="fulfillment" type="Fulfillment object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="chainId" type="number" required/>
+    <ResponseField name="createdAt" type="string" required/>
+    <ResponseField name="status" type="string" required/>
+    <ResponseField name="transactionHash" type="string" />
+    <ResponseField name="type" type="string" required/>
+    <ResponseField name="items" type="array of object" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "fulfillment": {
+    "chainId": 1,
+    "createdAt": "2023-04-20T21:29:55.530Z",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "status": "SUCCEEDED",
+    "transactionHash": "0xc705dec104b3c5b9f2395edd2bb59a2a66304fec529c569f8b613ab392354ee4",
+    "items": [
+      {
+        "destinationAddress": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461",
+        "tokenId": "0x1"
+      }
+    ],
+    "type": "MINT_TOKEN"
+  }
+}
+```
+</ResponseExample>
