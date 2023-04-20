@@ -89,7 +89,14 @@
                 "wallet-as-a-service/nft-apis/commerce/post-v1-payments"
               ]
             },
-            "wallet-as-a-service/nft-apis/get-v1-droplinks",
+            {
+              "group": "Droplink APIs",
+              "pages": [
+                "wallet-as-a-service/nft-apis/droplinks/get-v1-droplinks",
+                "wallet-as-a-service/nft-apis/droplinks/get-v1-unclaimed-droplinks",
+                "wallet-as-a-service/nft-apis/droplinks/post-v1-claim-droplink"
+              ]
+            },
             "wallet-as-a-service/nft-apis/get-v1-token-gates",
             "wallet-as-a-service/nft-apis/miscellaneous"
           ]
