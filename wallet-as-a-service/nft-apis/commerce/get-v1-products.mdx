@@ -4,44 +4,11 @@ api: "GET https://api.bitski.com/v1/products"
 description: "Get a list of all the live products for a storefront."
 ---
 
-### Parameters
+[![Example](/assets/images/products-642960da84b513a9cd900a8a56baf343.png "See product list example")](https://www.bitski.com/@candy/created)
 
-<ParamField query="baseUrl" type="string" placeholder="https://www.bitski.com/@bitski" optional>
-  URL for a Bitski creator, e.g. https://www.bitski.com/@username, to filter
-  products by. By default, uses the current user's first storefront in the list.
-</ParamField>
+### Response
 
-<ParamField query="saleType" type="string" optional>
-  Which type of product listing to return. 
-  One of `EDITION`, `LIMITED_EDITION`, `OPEN_EDITION`, `AUCTION`, `OFF_CHAIN_AUCTION`, `ON_CHAIN_AUCTION`
-</ParamField>
-
-<ParamField query="sold" type="boolean" optional>
-  Filter by if the product is sold (true) or not (false).
-</ParamField>
-
-<ParamField query="all" type="boolean" optional>
-  Filter by all products.
-</ParamField>
-
-<ParamField query="includeUpcoming" type="boolean" optional>
-  Include upcoming products scheduled to go live.
-</ParamField>
-
-<ParamField query="liveAt" type="string" optional>
-  The date a product or list of product goes live.
-</ParamField>
-
-<ParamField query="limit" type="integer" optional default="0">
-  Limit the number of products returned.
-</ParamField>
-
-<ParamField query="offset" type="integer" optional default="0">
-  Product to start from when paginating.
-</ParamField>
-
-### Response 
-<ParamField body="products" type="array of objects" required>
+<ResponseField name="products" type="array of objects" required>
   <Expandable>
     <ResponseField name="id" type="string" required/>
     <ResponseField name="network" type="string" required/>
@@ -116,13 +83,7 @@ description: "Get a list of all the live products for a storefront."
     </ResponseField>
     <ResponseField name="isGated" type="boolean" required />
   </Expandable>
-</ParamField>
-
-<ParamField body= "error" type="object" required >
-  <Expandable>
-    <ResponseField name="message" type="string" />
-  </Expandable>
-</ParamField>
+</ResponseField>
 
 <ResponseExample>
 ``` json Sample Response

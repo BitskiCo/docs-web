@@ -1,0 +1,69 @@
+---
+title: "GET Auction"
+api: "GET https://api.bitski.com/v1/auctions/{auctionId}"
+description: "Get details about an auction."
+---
+
+<ParamField path="auctionId" type="string" default="503e50d0-61e0-49e7-8e2b-8ad2226cb1b2" required>
+  The auction id
+</ParamField>
+
+[![Example auction](/assets/images/auction-cf357ab88249e78dc87ac56cb39ae3b3.png "See past auction as example")](https://www.bitski.com/@Candy/products/jd-davison-legendary-b493a939-f28d-4fad-8edc-37233b0f429b)
+
+### Response
+
+<ResponseField name="auction" type="array of objects" required>
+  <Expandable>
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="auctionContractAddress" type="string" required/>
+    <ResponseField name="auctionStandard" type="string" required/>
+    <ResponseField name="automaticSettlement" type="boolean" required/>
+    <ResponseField name="bids" type="array of objects" required/>
+    <ResponseField name="ended" type="boolean" required/>
+    <ResponseField name="externalId" type="string"/>
+    <ResponseField name="network" type="string" required/>
+    <ResponseField name="tokenContractAddress" type="string" required/>
+    <ResponseField name="tokenId" type="string" required/>
+    <ResponseField name="tokenMetadata" type="object" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "auction": {
+    "auctionContractAddress": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461",
+    "auctionStandard": "NON_FUNGIBLE_AUCTION",
+    "automaticSettlement": true,
+    "bids": [
+      {
+        "amount": "0x105b73c286c329a1",
+        "auctionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "bidder": "22e693e7-befc-4c6f-a135-5f0029c556c2",
+        "createdAt": "2023-04-20T01:19:15.884Z",
+        "currency": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461",
+        "transactionHash": "0x76cbbfd0fa31059647017c28a0f855b6494b995ac77e1228064ba47debf0bb34",
+        "username": "nft_fan"
+      }
+    ],
+    "ended": true,
+    "externalId": null,
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "network": "mainnet",
+    "tokenContractAddress": "0x0C3b9C785723B79Cf8D61a4A71E0ab5A00584772",
+    "tokenId": "0x1",
+    "tokenMetadata": {
+      "animation_url": null,
+      "attributes": null,
+      "background_color": null,
+      "description": "A very special NFT",
+      "external_url": "https://www.bitski.com/@Stapleverse",
+      "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+      "name": "NFT Token #1",
+      "properties": {},
+      "youtube_url": null
+    }
+  }
+}
+```
+</ResponseExample>
