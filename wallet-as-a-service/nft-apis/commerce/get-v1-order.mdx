@@ -1,0 +1,59 @@
+---
+title: "GET Order"
+api: "GET https://api.bitski.com/v1/orders/{orderId}"
+authMethod: "bearer"
+description: "Get order details"
+---
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+Get details about a given order
+
+![Example](/assets/images/purchase-9b8257de78baa9a450d36c5d5647b0c1.png "Purchase flow")
+
+### Path
+
+<ParamField path="orderId" type="string" required>
+  The order id
+</ParamField>
+
+### Response
+
+<ResponseField name="order" type="Order object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="createdAt" type="string" required/>
+    <ResponseField name="currency" type="string" required/>
+    <ResponseField name="items" type="array of object" required/>
+    <ResponseField name="status" type="string" required/>
+    <ResponseField name="subtotal" type="string" required/>
+    <ResponseField name="fees" type="string" required/>
+    <ResponseField name="taxes" type="string" required/>
+    <ResponseField name="total" type="string" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "order": {
+    "createdAt": "2023-04-20T21:05:20.976Z",
+    "currency": "USD",
+    "fees": "1.00",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "items": [
+      {
+        "amount": "10.00",
+        "fees": "1.00",
+        "productId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "taxes": "1.00"
+      }
+    ],
+    "status": "DRAFT",
+    "subtotal": "10.00",
+    "taxes": "1.00",
+    "total": "12.00"
+  }
+}
+```
+</ResponseExample>

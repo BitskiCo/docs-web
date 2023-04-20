@@ -1,0 +1,107 @@
+---
+title: "POST Orders"
+description: "POST /v1/orders"
+---
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+The orders API allows your users to purchase NFTs via credit card, or with
+delayed minting via ACH and other cryptocurrencies. Card processors are
+customizable to fit your needs. No payment or fulfillment is completed on
+create order.
+
+A payment intent is created and associated to the order to track sales that may
+not be completed.
+
+![Example](/assets/images/purchase-9b8257de78baa9a450d36c5d5647b0c1.png "Purchase flow")
+
+<RequestExample>
+
+```bash Request
+curl -X 'POST' \
+  'https://api.bitski.com/v1/orders' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  -d '{
+  "order": {
+    "currency": "USD",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "items": [
+      {
+        "productId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "quantity": 0
+      }
+    ],
+    "recipient": {
+      "customerEmail": "john@example.com",
+      "customerName": "John Doe",
+      "destinationAddress": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461"
+    }
+  },
+  "payment": {
+    "paymentMethodId": "pm_1Mz4es2eZvKYlo2CSnrUx5Z6"
+  },
+  "processorCustomerId": "cus_9s6XeO1kXqpwST"
+}'
+```
+
+</RequestExample>
+
+### Response
+
+<ResponseField name="order" type="Order object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="createdAt" type="string" required/>
+    <ResponseField name="currency" type="string" required/>
+    <ResponseField name="items" type="array of object" required/>
+    <ResponseField name="status" type="string" required/>
+    <ResponseField name="subtotal" type="string" required/>
+    <ResponseField name="fees" type="string" required/>
+    <ResponseField name="taxes" type="string" required/>
+    <ResponseField name="total" type="string" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="payment" type="Payment object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="createdAt" type="string" required/>
+    <ResponseField name="nextAction" type="object" />
+    <ResponseField name="paymentMethodDescription" type="object" required />
+    <ResponseField name="paymentMethodId" type="string" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "order": {
+    "createdAt": "2023-04-20T21:05:20.976Z",
+    "currency": "USD",
+    "fees": "1.00",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "items": [
+      {
+        "amount": "10.00",
+        "fees": "1.00",
+        "productId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "taxes": "1.00"
+      }
+    ],
+    "status": "DRAFT",
+    "subtotal": "10.00",
+    "taxes": "1.00",
+    "total": "12.00"
+  },
+  "payment": {
+    "createdAt": "2023-04-20T21:05:20.976Z",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "nextAction": null,
+    "paymentMethodDescription": "Visa 4111",
+    "paymentMethodId": "pm_1Mz4es2eZvKYlo2CSnrUx5Z6"
+  }
+}
+```
+</ResponseExample>
