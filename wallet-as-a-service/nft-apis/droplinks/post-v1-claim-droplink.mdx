@@ -1,0 +1,83 @@
+---
+title: "POST Claim Droplink"
+description: "POST /v1/claims"
+---
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+Creates a new claim for the given code.
+
+![Example droplink](/assets/images/unclaimed-d53061897d4e59685edf96d59a157712.jpeg "Unclaimed Example")
+
+<RequestExample>
+
+```bash Request
+curl -X 'POST' \
+  'https://api.bitski.com/v1/claims' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  -d '{
+  "claim": {
+    "claimCodeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "destination": {
+      "address": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461"
+    }
+  }
+}'
+```
+
+</RequestExample>
+
+### Response
+
+<ResponseField name="claim" type="Claim object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="claimCodeId" type="string" required/>
+    <ResponseField name="destination" type="object" required/>
+    <ResponseField name="createdAt" type="string" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "claim": {
+    "claimCodeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "createdAt": "2023-04-20T19:18:05.710Z",
+    "destination": {
+      "address": "0xa4ef984773fd233c4cbed9cb1b905a3fa21e9461"
+    },
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  },
+  "tokens": [
+    {
+      "animationUrl": null,
+      "backgroundColor": "#ff1122",
+      "createdAt": "2023-04-20T19:18:05.710Z",
+      "description": "Interesting bird NFT",
+      "externalUrl": "https://www.bitski.com/@Stapleverse",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+      "index": "0x3",
+      "metadata": {
+        "animation_url": null,
+        "attributes": null,
+        "background_color": null,
+        "description": "A very special NFT",
+        "external_url": "https://www.bitski.com/@Stapleverse",
+        "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+        "name": "NFT Token #1",
+        "properties": {},
+        "youtube_url": null
+      },
+      "name": "Bird #1",
+      "state": "MINTED",
+      "tokenTemplateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "youtubeUrl": null
+    }
+  ]
+}
+```
+</ResponseExample>

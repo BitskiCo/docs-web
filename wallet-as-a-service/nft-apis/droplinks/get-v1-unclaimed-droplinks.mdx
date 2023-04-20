@@ -1,0 +1,92 @@
+---
+title: "GET Unclaimed Droplinks"
+description: "GET /v1/claim-codes/unclaimed"
+---
+
+<ParamField query="ids" type="string" required>
+  An array of claim ids
+</ParamField>
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+Returns available claim codes matching the passed in ids that the current user has not yet claimed.
+
+![Example droplink](/assets/images/unclaimed-d53061897d4e59685edf96d59a157712.jpeg "Unclaimed Example")
+
+
+### Request
+
+<RequestExample>
+
+```bash Request
+curl -X 'GET' \
+  'https://api.bitski.com/v1/claim-codes/unclaimed?ids=bcc5d460-bec9-43ad-952a-9641514a6e7b' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>'
+```
+
+</RequestExample>
+
+### Response
+
+<ResponseField name="claimCodes" type="array of object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="claimableType" type="string" required/>
+    <ResponseField name="code" type="string"/>
+    <ResponseField name="createdAt" type="string"/>
+    <ResponseField name="description" type="string"/>
+    <ResponseField name="maxClaims" type="number"/>
+    <ResponseField name="storeUsername" type="number"/>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="network" type="string" default="mainnet" required>
+  The ethereum network identifier
+</ResponseField>
+
+<ResponseField name="tokenMetadata" type="Token Metadata object" required>
+  <Expandable title="properties">
+    <ResponseField name="name" type="string" />
+    <ResponseField name="image" type="string" />
+    <ResponseField name="description" type="string" />
+    <ResponseField name="animation_url" type="string"/>
+    <ResponseField name="attributes" type="object" />
+    <ResponseField name="background_color" type="string" />
+    <ResponseField name="external_url" type="string" />
+    <ResponseField name="properties" type="object" />
+    <ResponseField name="youtube_url" type="string" />
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "claim_codes": [
+    {
+      "claim_code": {
+        "claimableType": "RAFFLE",
+        "code": "BIRDFAN2023",
+        "createdAt": "2023-04-20T18:10:09.848Z",
+        "description": "A free bird NFT",
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "maxClaims": 1,
+        "storeUsername": "nft_fans"
+      },
+      "network": "mainnet",
+      "token_metadata": {
+        "animation_url": null,
+        "attributes": null,
+        "background_color": null,
+        "description": "A very special NFT",
+        "external_url": "https://www.bitski.com/@Stapleverse",
+        "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+        "name": "NFT Token #1",
+        "properties": {},
+        "youtube_url": null
+      }
+    }
+  ]
+}
+```
+</ResponseExample>

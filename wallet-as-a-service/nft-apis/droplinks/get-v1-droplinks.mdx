@@ -1,0 +1,138 @@
+---
+title: "GET Droplinks"
+api: "GET https://api.bitski.com/v1/claim-codes/{id}"
+description: "Get details about a droplink."
+---
+
+<ParamField path="id" type="string" default="bcc5d460-bec9-43ad-952a-9641514a6e7b" required>
+  The droplink id, raffle id, or claim code
+</ParamField>
+
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+Allow users to create a wallet and claim an NFT via QR code, URL, or in app experience.
+
+[![Example droplink](/assets/images/droplink-918620093b54a6f60455c44ac0c1ede9.png "See droplink example")](https://www.bitski.com/claim/bcc5d460-bec9-43ad-952a-9641514a6e7b)
+
+### Response
+
+<ResponseField name="claimCode" type="Claim Code object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="claimableType" type="string" required/>
+    <ResponseField name="code" type="string"/>
+    <ResponseField name="createdAt" type="string"/>
+    <ResponseField name="description" type="string"/>
+    <ResponseField name="maxClaims" type="number"/>
+    <ResponseField name="storeUsername" type="number"/>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="claimCodeThemes" type="array of objects" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="appId" type="string" required/>
+    <ResponseField name="backgroundImageUrl" type="string"/>
+    <ResponseField name="footerHtml" type="string"/>
+    <ResponseField name="linkColor" type="string"/>
+    <ResponseField name="linkHoverColor" type="string"/>
+    <ResponseField name="logoUrl" type="string"/>
+    <ResponseField name="postClaimRedirectButtonText" type="string"/>
+    <ResponseField name="postClaimRedirectButtonUrl" type="string"/>
+    <ResponseField name="primaryBackgroundColor" type="string"/>
+    <ResponseField name="primaryButtonColor" type="string"/>
+    <ResponseField name="primaryButtonHoverColor" type="string"/>
+    <ResponseField name="primaryButtonTextColor" type="string"/>
+    <ResponseField name="primaryTextColor" type="string"/>
+    <ResponseField name="progressBarActiveTextColor" type="string"/>
+    <ResponseField name="progressBarBackgroundColor" type="string"/>
+    <ResponseField name="progressBarBorderColor" type="string"/>
+    <ResponseField name="progressBarColor" type="string"/>
+    <ResponseField name="progressBarInactiveTextColor" type="string"/>
+    <ResponseField name="secondaryBackgroundColor" type="string"/>
+    <ResponseField name="secondaryButtonColor" type="string"/>
+    <ResponseField name="secondaryButtonHoverColor" type="string"/>
+    <ResponseField name="secondaryButtonTextColor" type="string"/>
+    <ResponseField name="secondaryTextColor" type="string"/>
+    <ResponseField name="signInWithEthSetting" type="string"/>
+    <ResponseField name="tertiaryTextColor" type="string"/>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="network" type="string" default="mainnet" required>
+  The ethereum network identifier
+</ResponseField>
+
+<ResponseField name="tokenMetadata" type="Token Metadata object" required>
+  <Expandable title="properties">
+    <ResponseField name="name" type="string" />
+    <ResponseField name="image" type="string" />
+    <ResponseField name="description" type="string" />
+    <ResponseField name="animation_url" type="string"/>
+    <ResponseField name="attributes" type="object" />
+    <ResponseField name="background_color" type="string" />
+    <ResponseField name="external_url" type="string" />
+    <ResponseField name="properties" type="object" />
+    <ResponseField name="youtube_url" type="string" />
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "claimCode": {
+    "claimableType": "RAFFLE",
+    "code": "BIRDFAN2023",
+    "createdAt": "2023-04-20T17:46:44.109Z",
+    "description": "A free bird NFT",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "maxClaims": 1,
+    "storeUsername": "nft_fans"
+  },
+  "claimCodeThemes": [
+    {
+      "appId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "backgroundImageUrl": null,
+      "footerHtml": "Find more tokens",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "linkColor": "#0101ff",
+      "linkHoverColor": "#01ff01",
+      "logoUrl": null,
+      "postClaimRedirectButtonText": "Explore with your new token",
+      "postClaimRedirectButtonUrl": "https://www.bitski.com/explore",
+      "primaryBackgroundColor": "#0101ff",
+      "primaryButtonColor": "#01ff01",
+      "primaryButtonHoverColor": "#0101ff",
+      "primaryButtonTextColor": "#01ff01",
+      "primaryTextColor": "#ff0101",
+      "progressBarActiveTextColor": "#0101ff",
+      "progressBarBackgroundColor": "#0101ff",
+      "progressBarBorderColor": "#01ff01",
+      "progressBarColor": "#01ff01",
+      "progressBarInactiveTextColor": "#01ff01",
+      "secondaryBackgroundColor": "#01ff01",
+      "secondaryButtonColor": "#0101ff",
+      "secondaryButtonHoverColor": "#01ff01",
+      "secondaryButtonTextColor": "#0101ff",
+      "secondaryTextColor": "#01ff01",
+      "signInWithEthSetting": "DEFAULT",
+      "tertiaryTextColor": "#0101ff"
+    }
+  ],
+  "network": "mainnet",
+  "tokenMetadata": [
+    {
+      "animation_url": null,
+      "attributes": null,
+      "background_color": null,
+      "description": "A very special NFT",
+      "external_url": "https://www.bitski.com/@Stapleverse",
+      "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+      "name": "NFT Token #1",
+      "properties": {},
+      "youtube_url": null
+    }
+  ]
+}
+```
+</ResponseExample>
