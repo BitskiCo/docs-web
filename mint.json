@@ -70,6 +70,7 @@
         {
           "group": "NFT APIs",
           "pages": [
+            "wallet-as-a-service/nft-apis/overview",
             {
               "group": "Contract APIs",
               "pages": [
