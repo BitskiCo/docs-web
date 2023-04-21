@@ -102,7 +102,16 @@
                 "wallet-as-a-service/nft-apis/droplinks/post-v1-claim-droplink"
               ]
             },
-            "wallet-as-a-service/nft-apis/get-v1-token-gates",
+            {
+              "group": "Token Gating APIs",
+              "pages": [
+                "wallet-as-a-service/nft-apis/token-gating/get-v1-check-gate",
+                "wallet-as-a-service/nft-apis/token-gating/get-v1-token-gates",
+                "wallet-as-a-service/nft-apis/token-gating/get-v1-token-gate",
+                "wallet-as-a-service/nft-apis/token-gating/post-v1-token-gates",
+                "wallet-as-a-service/nft-apis/token-gating/put-v1-token-gate"
+              ]
+            },
             "wallet-as-a-service/nft-apis/miscellaneous"
           ]
         },
