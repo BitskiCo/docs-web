@@ -116,9 +116,16 @@
           ]
         },
         {
+          "group": "Web3 APIs",
+          "pages": [
+            "wallet-as-a-service/web-3/web3-get-started",
+            "wallet-as-a-service/web-3/json-rpc-support"
+          ]
+        },
+        {
           "group": "SDK",
           "pages": [
-            "integrations/sdk/sdk-overview"
+            "wallet-as-a-service/sdk/sdk-overview"
           ]
         }
       ]
@@ -134,13 +141,6 @@
             "integrations/connectors/rainbowkit",
             "integrations/connectors/walletconnect",
             "integrations/connectors/block-native"
-          ]
-        },
-        {
-          "group": "Web3",
-          "pages": [
-            "integrations/web-3/web3-get-started",
-            "integrations/web-3/json-rpc-support"
           ]
         },
         "integrations/faq",
