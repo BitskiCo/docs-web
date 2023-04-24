@@ -152,5 +152,10 @@
   "footerSocials": {
     "twitter": "https://twitter.com/bitski",
     "discord": "https://discord.com/invite/bitski"
+  },
+  "analytics": {
+    "ga4": {
+      "measurementId": "G-YQ9MDEKVXG"
+    }
   }
 }
