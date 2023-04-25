@@ -1,17 +1,26 @@
 ---
 title: "PATCH Contract"
-description: "Update ethereum contracts"
+api: "PATCH https://api.bitski.com/v1/apps/{appId}/contracts/{contractId}"
+authMethod: "bearer"
+description: "Update collections or contracts via the Bitski minting infrastructure."
 ---
 
 <Note>This API requires the `apps` scope</Note>
 
-Update collections or contracts via the Bitski minting infrastructure.
+### Path
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+<ParamField path="contractId" type="string" required>
+  Your contract ID
+</ParamField>
 
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'PATCH' \
-  'https://api.bitski.com/v1/apps/<APP_ID>/contracts/<CONTRACT_ID>' \
+  'https://api.bitski.com/v1/apps/{appId}/contracts/{contractId}' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <ACCESS_TOKEN>' \

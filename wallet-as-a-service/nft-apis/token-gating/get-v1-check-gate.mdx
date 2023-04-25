@@ -1,14 +1,12 @@
 ---
 title: "GET Check Token Gate"
 api: "GET https://api.bitski.com/v1/gates/check"
-description: "Get check a token gate"
+description: "Limit access to web pages or other experiences to users who control a specific token."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Limit access to web pages or other experiences to users who control a specific token.
-
-![Example](/assets/images/gate-37fcd3c18c3afec1456c1d81dc6288cc.png "Gated Order")
+### Parameters
 
 <ParamField query="wallet" type="string" required>
   The address of the wallet you want to check
@@ -18,8 +16,10 @@ Limit access to web pages or other experiences to users who control a specific t
   The ids of the token gates to check
 </ParamField>
 
-### Response
+### Examples
+![Token Gating](/assets/images/token-gating-1492c273644ac0dca630fba6ee2ce685.png)
 
+### Response
 <ResponseField name="allowed" type="boolean" required>
   If the user is allowed past the gate
 </ResponseField>

@@ -1,23 +1,15 @@
 ---
-title: "Complete Payment"
-description: "PATCH /v1/orders/{orderId}/payments/{paymentId}"
+title: "PATCH Payment"
+api: "PATCH https://api.bitski.com/v1/orders/{orderId}/payments/{paymentId}"
+authMethod: "bearer"
+description: "Update payment method for an order."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-The orders API allows your users to purchase NFTs via credit card, or with
-delayed minting via ACH and other cryptocurrencies. Card processors are
-customizable to fit your needs. No payment or fulfillment is completed on
-create order.
-
-A payment intent is created and associated to the order to track sales that may
-not be completed.
-
-![Example](/assets/images/order-success-d3efcb64848396910ebc9ebb68fa0d88.png "Completed Order")
-
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'PATCH' \
   'https://api.bitski.com/v1/orders/3fa85f64-5717-4562-b3fc-2c963f66afa6/payments/3fa85f64-5717-4562-b3fc-2c963f66afa6' \
   -H 'accept: application/json' \
@@ -32,6 +24,10 @@ curl -X 'PATCH' \
 ```
 
 </RequestExample>
+
+### Examples
+
+![Example](/assets/images/order-confirmation-25593ac1a2cfdd4506ac9dc914967111.png "Completed Order")
 
 ### Response
 

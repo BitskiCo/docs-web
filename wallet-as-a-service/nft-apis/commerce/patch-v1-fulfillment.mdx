@@ -1,19 +1,26 @@
 ---
-title: "Complete Fulfillment"
-description: "PATCH /v1/apps/{appId}/fulfillments/{fulfillmentId}"
+title: "PATCH Fulfillments"
+api: "PATCH https://api.bitski.com/v1/apps/{appId}/fulfillments/{fulfillmentId}"
+authMethod: "bearer"
+description: "Update a given fulfillment status to complete."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Update a given fulfillment status to complete.
+### Path
+<ParamField path="appId" type="string" required>
+  The Bitski application ID
+</ParamField>
 
-![Example](/assets/images/fulfillment-a1c500bae89cda3612a85b6d2ce335da.jpeg "Fulfilled Order")
+<ParamField path="fulfillmentId" type="string" required>
+  The fulfillment ID
+</ParamField>
 
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'PATCH' \
-  'https://api.bitski.com/v1/apps/<APP_ID>/fulfillments/<FULFILLMENT_ID>' \
+  'https://api.bitski.com/v1/apps/{appId}/fulfillments/{fulfillmentId}}' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <ACCESS_TOKEN>' \
@@ -26,6 +33,10 @@ curl -X 'PATCH' \
 ```
 
 </RequestExample>
+
+### Examples
+
+![Example](/assets/images/fulfillment-a1c500bae89cda3612a85b6d2ce335da.jpeg "Fulfilled Order")
 
 ### Response
 

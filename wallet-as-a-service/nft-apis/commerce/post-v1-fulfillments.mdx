@@ -1,19 +1,19 @@
 ---
 title: "POST Fulfillments"
-description: "POST /v1/apps/{appId}/fulfillments"
+api: "POST https://api.bitski.com/v1/apps/{appId}/fulfillments"
+authMethod: "bearer"
+description: "Create a fulfillment for an order."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Create a fulfillment for an order
-
-![Example](/assets/images/fulfillment-a1c500bae89cda3612a85b6d2ce335da.jpeg "Fulfilled Order")
+### Path
 
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'POST' \
-  'https://api.bitski.com/v1/apps/<APP_ID>/fulfillments' \
+  'https://api.bitski.com/v1/apps/{appId}/fulfillments' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <ACCESS_TOKEN>' \
@@ -33,6 +33,13 @@ curl -X 'POST' \
 ```
 
 </RequestExample>
+
+<ParamField path="appId" type="string" required>
+  The Bitski application ID
+</ParamField>
+
+### Examples
+![Example](/assets/images/fulfillment-a1c500bae89cda3612a85b6d2ce335da.jpeg "Fulfilled Order")
 
 ### Response
 

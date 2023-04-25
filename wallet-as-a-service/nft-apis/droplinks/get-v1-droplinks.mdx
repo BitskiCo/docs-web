@@ -1,16 +1,17 @@
 ---
 title: "GET Droplinks"
 api: "GET https://api.bitski.com/v1/claim-codes/{id}"
-description: "Get details about a droplink."
+description: "Allow users to create a wallet and claim an NFT via QR code, URL, or in app experience."
 ---
-
-<ParamField path="id" type="string" default="bcc5d460-bec9-43ad-952a-9641514a6e7b" required>
-  The droplink id, raffle id, or claim code
-</ParamField>
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Allow users to create a wallet and claim an NFT via QR code, URL, or in app experience.
+### Path
+<ParamField path="id" type="string" required>
+  The Droplink ID, raffle ID, or claim code
+</ParamField>
+
+### Examples
 
 [![Example droplink](/assets/images/droplink-918620093b54a6f60455c44ac0c1ede9.png "See droplink example")](https://www.bitski.com/claim/bcc5d460-bec9-43ad-952a-9641514a6e7b)
 

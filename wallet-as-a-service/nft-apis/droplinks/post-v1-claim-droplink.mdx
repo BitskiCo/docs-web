@@ -1,17 +1,15 @@
 ---
 title: "POST Claim Droplink"
-description: "POST /v1/claims"
+api: "POST https://api.bitski.com/v1/claims"
+authMethod: "bearer"
+description: "Creates a new claim for the given code."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Creates a new claim for the given code.
-
-![Example droplink](/assets/images/unclaimed-d53061897d4e59685edf96d59a157712.jpeg "Unclaimed Example")
-
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'POST' \
   'https://api.bitski.com/v1/claims' \
   -H 'accept: application/json' \
@@ -28,6 +26,9 @@ curl -X 'POST' \
 ```
 
 </RequestExample>
+
+### Examples
+![Example droplink](/assets/images/unclaimed-d53061897d4e59685edf96d59a157712.jpeg "Unclaimed Example")
 
 ### Response
 

@@ -1,18 +1,17 @@
 ---
 title: "POST Token Gate"
-description: "POST /v1/apps/{appId}/gates"
+api: "POST https://api.bitski.com/v1/apps/{appId}/gates"
+authMethod: "bearer"
+description: "Limit access to web pages or other experiences to users who control a specific token."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Limit access to web pages or other experiences to users who control a specific token.
-
-![Example](/assets/images/gate-37fcd3c18c3afec1456c1d81dc6288cc.png "Gated Order")
-
+### Path
 
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'POST' \
   'https://api.bitski.com/v1/apps/<APP_ID>/gates' \
   -H 'accept: application/json' \
@@ -45,6 +44,13 @@ curl -X 'POST' \
 ```
 
 </RequestExample>
+
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+### Examples
+![Token Gating](/assets/images/token-gating-1492c273644ac0dca630fba6ee2ce685.png)
 
 ### Response
 

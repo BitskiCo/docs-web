@@ -1,23 +1,22 @@
 ---
 title: "POST Orders"
-description: "POST /v1/orders"
+api: "POST https://api.bitski.com/v1/orders"
+authMethod: "bearer"
+description: "Purchase NFTs via credit card, ACH, or cryptocurrencies."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-The orders API allows your users to purchase NFTs via credit card, or with
-delayed minting via ACH and other cryptocurrencies. Card processors are
+The Orders API allows your users to purchase NFTs via credit card, ACH, or other cryptocurrencies. Card processors are
 customizable to fit your needs. No payment or fulfillment is completed on
 create order.
 
 A payment intent is created and associated to the order to track sales that may
 not be completed.
 
-![Example](/assets/images/purchase-9b8257de78baa9a450d36c5d5647b0c1.png "Purchase flow")
-
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'POST' \
   'https://api.bitski.com/v1/orders' \
   -H 'accept: application/json' \
@@ -47,6 +46,10 @@ curl -X 'POST' \
 ```
 
 </RequestExample>
+
+### Examples
+
+![Example](/assets/images/order-summary-254645779af54a4557ecbb050d52f733.png "Purchase flow")
 
 ### Response
 
