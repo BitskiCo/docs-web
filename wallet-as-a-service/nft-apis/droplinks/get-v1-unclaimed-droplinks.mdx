@@ -1,31 +1,28 @@
 ---
 title: "GET Unclaimed Droplinks"
-description: "GET /v1/claim-codes/unclaimed"
+api: "GET https://api.bitski.com/v1/claim-codes/unclaimed?ids={ids}"
+authMethod: "bearer"
+description: "Returns available claim codes matching the passed in ids that the current user has not yet claimed."
 ---
 
+<Note>Access to this API is available upon request to sales@bitski.com.</Note>
+
+<RequestExample>
+```bash cURL
+curl -X 'GET' \
+  'https://api.bitski.com/v1/claim-codes/unclaimed?ids={ids}' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>'
+```
+</RequestExample>
+
+### Parameters
 <ParamField query="ids" type="string" required>
   An array of claim ids
 </ParamField>
 
-<Note>Access to this API is available upon request to sales@bitski.com.</Note>
-
-Returns available claim codes matching the passed in ids that the current user has not yet claimed.
-
+### Examples
 ![Example droplink](/assets/images/unclaimed-d53061897d4e59685edf96d59a157712.jpeg "Unclaimed Example")
-
-
-### Request
-
-<RequestExample>
-
-```bash Request
-curl -X 'GET' \
-  'https://api.bitski.com/v1/claim-codes/unclaimed?ids=bcc5d460-bec9-43ad-952a-9641514a6e7b' \
-  -H 'accept: application/json' \
-  -H 'Authorization: Bearer <ACCESS_TOKEN>'
-```
-
-</RequestExample>
 
 ### Response
 

@@ -1,18 +1,17 @@
 ---
 title: "PUT Token Gate"
-description: "POST /v1/apps/{appId}/gates/{gateId}"
+api: "PUT https://api.bitski.com/v1/apps/{appId}/gates/{gateId}"
+authMethod: "bearer"
+description: "Limit access to web pages or other experiences to users who control a specific token."
 ---
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Limit access to web pages or other experiences to users who control a specific token.
-
-![Example](/assets/images/gate-37fcd3c18c3afec1456c1d81dc6288cc.png "Gated Order")
-
+### Path
 
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'PUT' \
   'https://api.bitski.com/v1/apps/<APP_ID>/gates/<GATE_ID>' \
   -H 'accept: application/json' \
@@ -43,8 +42,18 @@ curl -X 'PUT' \
   }
 }'
 ```
-
 </RequestExample>
+
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+<ParamField path="gateId" type="string" required>
+  The ID of the token being gated
+</ParamField>
+
+### Examples
+![Token Gating](/assets/images/token-gating-1492c273644ac0dca630fba6ee2ce685.png)
 
 ### Response
 

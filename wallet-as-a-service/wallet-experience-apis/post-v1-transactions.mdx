@@ -1,11 +1,12 @@
 ---
 title: "POST Transactions"
-description: "POST /v1/transactions"
+api: "POST https://api.bitski.com/v1/transactions"
+description: "Create a new pending transaction for the current user."
+authMethod: "bearer"
+
 ---
 
 <Note>Access to this API requires authentication. To receive help on accessing this API, please reach out to sales@bitski.com.</Note>
-
-Create a new pending transaction for the current user.
 
 Users can be prompted to sign your transaction after creation. Email us or join
 the discord for help creating transactions.
@@ -27,8 +28,7 @@ window.open(`https://sign.bitski.com/transactions/{transaction.id}`);
 
 ### Examples
 
-![Transaction Approval](/assets/images/transaction-1.png)
-![Transaction Simulation](/assets/images/transaction-2.png)
+![Transactions](/assets/images/transactions-d5e3645ce6459977526ac454fea48a92.png)
 
 <RequestExample>
 

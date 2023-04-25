@@ -1,17 +1,17 @@
 ---
 title: "POST Contract"
+api: "POST https://api.bitski.com/v1/apps/{appId}/contracts"
+authMethod: "bearer"
 description: "Create collections on dedicated or shared contracts across chains"
 ---
 
 <Note>This API requires the `apps` scope</Note>
 
-Create collections or contracts via the Bitski minting infrastructure.
-
 <RequestExample>
 
-```bash Request
+```bash cURL
 curl -X 'POST' \
-  'https://api.bitski.com/v1/apps/<APP_ID>/contracts' \
+  'https://api.bitski.com/v1/apps/{appId}/contracts' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <ACCESS_TOKEN>' \
@@ -28,6 +28,11 @@ curl -X 'POST' \
 ```
 
 </RequestExample>
+
+### Path
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
 
 ### Response
 
