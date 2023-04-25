@@ -4,6 +4,41 @@ title: "Activity Webhooks"
 
 <Note>Access to this API is available upon request to sales@bitski.com.</Note>
 
-Get the data necessary to send emails, push notifications, or otherwise react when on-chain events happen to your users.
+Get the data necessary to send emails, push notifications, or otherwise react
+when on-chain events happen to your users.
 
-Register to get the activity payloads above sent to a URL.
+## Signing Events
+
+Receive event notifications when your users have pending transactions to approve.
+
+Events include data for the following events: `APPROVE_TRANSACTION`.
+
+![Transaction Approval Push Notification](/assets/images/signing-request-448842d19a213bc85e8d620b8de72b35.png)
+
+## NFT Events
+
+Receive event notifications when your users have new on-chain activity.
+
+Events include data for the following events: `TOKEN_SENT`, `TOKEN_RECEIVED`,
+`TOKEN_SWAPPED`, `TOKEN_MINTED`.
+
+![Token Minted Push Notification](/assets/images/token-minted-ed3bf7101c5b855bb0eb423d35797c45.png)
+
+## Floor Price Events
+
+Receive events notifications when floor prices change for a given collection or token.
+
+Events in clude data for the following events: `FLOOR_PRICE_INCREASED`,
+`FLOOR_PRICE_DECREASED`.
+
+![Floor Price Push Notification](/assets/images/floor-price-notification-2b8ff32238aad14c31761a6976b0f437.png)
+
+## OpenSea Events
+
+Receive events when your user's wallets have activity on OpenSea.
+
+Events include data for the following events: `PAID`, `SOLD`, `OFFER`,
+`PRICE_CHANGE`, `AUCTION_ENDED`, `BID`, `OUTBID`, `PURCHASE`, `REVOKE`, and
+`APPROVAL`.
+
+![Offer Received Push Notification](/assets/images/offer-received-push-5a63dd578e5b6ff65c127fc2ce941962.png)
