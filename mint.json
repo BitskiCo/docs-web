@@ -65,6 +65,7 @@
             "wallet-as-a-service/wallet-experience-apis/get-v2-tokens",
             "wallet-as-a-service/wallet-experience-apis/get-v2-profiles",
             "wallet-as-a-service/wallet-experience-apis/get-v1-transactions",
+            "wallet-as-a-service/wallet-experience-apis/post-v1-transactions",
             "wallet-as-a-service/wallet-experience-apis/get-v1-discovery-feed",
             "wallet-as-a-service/wallet-experience-apis/activity-webhooks"
           ]
