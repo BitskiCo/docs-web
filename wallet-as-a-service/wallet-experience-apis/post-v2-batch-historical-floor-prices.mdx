@@ -1,0 +1,61 @@
+---
+title: "POST Batch Historical Floor Prices"
+api: "POST https://api.bitski.com/v2/historical-floor-prices/batch?duration={duration}"
+description: "Get batch historical floor prices for a wallet on a chain"
+---
+
+### Parameters
+
+<ParamField query="duration" type="string" placeholder="ONE_MONTH" required>
+  The time window for the floor prices.
+</ParamField>
+
+### Examples
+
+![Portfolio](/assets/images/portfolio-dc18d3d632e96a67254257a6f2933aa4.png)
+
+<RequestExample>
+
+```bash Request
+curl -X 'POST' \
+  'https://api.bitski.com/v2/historical-floor-prices/batch?duration=ONE_MONTH' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "contractIds": [
+    {
+      "address": "0x1C505d3AC1B902b69bc153aEdad477c9bC9ccde7",
+      "chainId": 1,
+      "coinType": 60
+    }
+  ]
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "collections": [
+    {
+      "contractId": {
+        "address": "0x1C505d3AC1B902b69bc153aEdad477c9bC9ccde7",
+        "chainId": 1,
+        "coinType": 60
+      },
+      "prices": [
+        {
+          "closingFloorPrice": "110.00",
+          "currency": "USD",
+          "date": "2023-04-25",
+          "highestFloorPrice": "150.00",
+          "lowestFloorPrice": "90.00",
+          "openingFloorPrice": "100.00"
+        }
+      ]
+    }
+  ]
+}
+```
+</ResponseExample>
