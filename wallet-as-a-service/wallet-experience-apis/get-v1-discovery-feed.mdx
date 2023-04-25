@@ -1,0 +1,64 @@
+---
+title: "GET Discovery Feed"
+api: "GET https://api.bitski.com/v1/users/{userId}/inbox"
+description: "Get list of content recommended for a given user's address."
+---
+
+### Parameters
+
+<ParamField path="userId" type="string" placeholder="me" required>
+  The user's id or username.
+</ParamField>
+
+<ParamField query="walletAddress" type="string" placeholder="0x1e1834a97f7bbab0175ef59788c1b9da30efd97b" required>
+  The user's wallet address.
+</ParamField>
+
+### Examples
+
+![Drip Feed](/assets/images/drip-feed-45700cc2425f9fccd8a25083e4b935d9.jpeg)
+
+### Response
+
+<ResponseField name="items" type="array of objects" required>
+  <Expandable>
+    <ResponseField name="type" type="string" required/>
+    <ResponseField name="object" type="object" required/>
+    <ResponseField name="actor" type="object" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "items": [
+    {
+      "type": "Create",
+      "object": {
+        "content": "<p>The Stand with Crypto commemorative NFT is a symbol of unity for the crypto community seeking sensible crypto policy.</p>\n",
+        "id": "https://api.bitski.com/v1/articles/1ynniNVuybfsoug23Etzgd",
+        "image": "https://ipfs.decentralized-content.com/ipfs/bafybeidfoyl6vdhoqpbqkp3jcbcpl4vw2udieqlcvia2domkkst5i2yk7q",
+        "name": "Stand With Crypto OE Mint",
+        "published": "2023-04-25T00:30:02Z",
+        "source": {
+          "content": "The Stand with Crypto commemorative NFT is a symbol of unity for the crypto community seeking sensible crypto policy.",
+          "mediaType": "text/markdown"
+        },
+        "tag": [
+          "mint"
+        ],
+        "type": "Article",
+        "updated": "2023-04-25T00:30:02Z",
+        "url": [
+          "https://bit.ly/41Hxkja"
+        ]
+      },
+      "actor": {
+        "name": "@bitski",
+        "type": "Person"
+      }
+    }
+  ]
+}
+```
+</ResponseExample>
