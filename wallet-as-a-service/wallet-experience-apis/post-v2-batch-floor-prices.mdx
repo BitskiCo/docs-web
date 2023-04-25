@@ -1,0 +1,51 @@
+---
+title: "POST Batch Floor Prices"
+api: "POST https://api.bitski.com/v2/floor-prices/batch?supportedChainIds={chainIds}"
+description: "Get floor prices for a wallet on a chain"
+---
+
+### Query
+
+<ParamField query="supportedChainIds" type="array of string" placeholder="[1]" required>
+  The ethereum chain ids to include
+</ParamField>
+
+### Examples
+
+![Floor Price](/assets/images/floor-prices-f41fe8ca5dfe9fa49e93fe9c93116748.png)
+
+<RequestExample>
+
+```bash Request
+curl -X 'POST' \
+  'https://api.bitski.com/v2/floor-prices/batch?supportedChains=1' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "contractIds": [
+    {
+      "address": "0x1C505d3AC1B902b69bc153aEdad477c9bC9ccde7",
+      "chainId": 1,
+      "coinType": 60
+    }
+  ]
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "prices": [
+    {
+      "blockNumber": "17125297",
+      "currency": "USD",
+      "marketplace": "opensea",
+      "price": "100.00",
+      "timestamp": "2023-04-25T19:41:00.425Z"
+    }
+  ]
+}
+```
+</ResponseExample>

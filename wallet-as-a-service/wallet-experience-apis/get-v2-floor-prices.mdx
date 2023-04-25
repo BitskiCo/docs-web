@@ -1,0 +1,38 @@
+---
+title: "GET Floor Prices"
+api: "GET https://api.bitski.com/v2/floor-prices/{coinType}/{chainId}/{address}"
+description: "Get floor prices for a wallet on a chain"
+---
+
+### Path
+<ParamField path="coinType" type="string" placeholder="60" required>
+  The blockchain coin type.
+</ParamField>
+
+<ParamField path="chainId" type="string" placeholder="137"  required>
+  The chain ID.
+</ParamField>
+
+<ParamField path="address" type="string" placeholder="0xb010d3ed7209506ab110c5de197a48abd1cc493f" required>
+  The address of the wallet to get floor prices for.
+</ParamField>
+
+### Examples
+
+![Floor Price](/assets/images/floor-prices-f41fe8ca5dfe9fa49e93fe9c93116748.png)
+
+<ResponseExample>
+``` json Sample Response
+{
+  "prices": [
+    {
+      "blockNumber": "17125297",
+      "currency": "USD",
+      "marketplace": "opensea",
+      "price": "100.00",
+      "timestamp": "2023-04-25T19:41:00.425Z"
+    }
+  ]
+}
+```
+</ResponseExample>
