@@ -63,6 +63,7 @@
             "wallet-as-a-service/wallet-experience-apis/get-v2-activity",
             "wallet-as-a-service/wallet-experience-apis/get-v2-balances",
             "wallet-as-a-service/wallet-experience-apis/get-v2-tokens",
+            "wallet-as-a-service/wallet-experience-apis/get-v2-profiles",
             "wallet-as-a-service/wallet-experience-apis/get-v1-transactions",
             "wallet-as-a-service/wallet-experience-apis/activity-webhooks"
           ]

@@ -1,0 +1,41 @@
+---
+title: "GET Profiles"
+api: "GET https://api.bitski.com/v2/profiles/{username}"
+description: "Get public profile details"
+---
+
+### Parameters
+
+<ParamField query="userId" type="string" placeholder="candy" required>
+  The profile id or username
+</ParamField>
+
+
+### Examples
+
+[![Profile](/assets/images/profile-6b903ea79e6ed4d0e9ae114619f89bd9.png)](https://www.bitski.com/@candy)
+
+<ResponseExample>
+``` json Sample Response
+{
+  "profile": {
+    "connectedAccounts": [{
+      "externalId": "0xdcdc64fb0eeb0cc6d06b03f8616961989db1437f",
+      "id": "18c71561-8ea5-4a63-88d7-6931d2b32513",
+      "isPublic": true
+    }],
+    "description": "Candy Digital is a next generation digital collectible company which has been launched by three titans of their respective industries: Michael Rubin, Executive Chairman, Fanatics; Mike Novogratz, founder and CEO, Galaxy Digital; and Gary Vaynerchuk, Serial Entrepreneur and Investor.\n\nCandy is building the ecosystem for official Major League Baseball collectable NFTs where fans and collectors will be able to purchase, trade, and share officially licensed NFTs to deepen their love of the sport. Candy’s team of world class digital artists, designers, and technologists are developing a broad range of digital collectibles, beginning with sports content and expanding into art, entertainment, music, and more.\n\nTerms & Conditions: https://bit.ly/3qXU7p7\nPrivacy Policy: https://bit.ly/3yEWY90",
+    "id": "bd3fc0c0-c7b6-4f6d-842b-de8cd1934550",
+    "imageUrl": "https://cdn.bitskistatic.com/clients-raw/90419700-e0fd-4e06-8901-8b73de32bcde/287c7414-fb2f-430c-9dbc-73ab41c1b386.gif",
+    "links": {
+      "instagram": "candydigital",
+      "twitter": "CandyDigital",
+      "website": "https://www.candy.com/"
+    },
+    "name": "Candy",
+    "type": "CREATOR",
+    "username": "Candy"
+  }
+}
+```
+</ResponseExample>
