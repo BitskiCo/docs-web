@@ -1,0 +1,94 @@
+---
+title: "PATCH Token"
+api: "PATCH https://api.bitski.com/v1/apps/{appId}/tokens/{tokenId}"
+authMethod: "bearer"
+description: "Update token details"
+---
+
+<Note>This API requires the `apps` scope</Note>
+
+<RequestExample>
+
+```bash cURL
+curl -X 'PATCH' \
+  'https://api.bitski.com/v1/apps/{appId}/tokens/{tokenId}' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  -d '{
+  "token": {
+    "publicMetadata": {
+      "level": 3,
+    },
+  }
+}'
+```
+
+</RequestExample>
+
+### Path
+
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+<ParamField path="tokenId" type="string" required>
+  The token id
+</ParamField>
+
+### Response
+
+<ResponseField name="token" type="Token object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="tokenTemplateId" type="string" required/>
+    <ResponseField name="name" type="string" required/>
+    <ResponseField name="animationUrl" type="string"/>
+    <ResponseField name="backgroundColor" type="string"/>
+    <ResponseField name="youtubeUrl" type="string"/>
+    <ResponseField name="createdAt" type="date" required/>
+    <ResponseField name="description" type="string" required/>
+    <ResponseField name="externalUrl" type="string" />
+    <ResponseField name="image" type="string" />
+    <ResponseField name="index" type="string" required/>
+    <ResponseField name="metadata" type="object" required/>
+    <ResponseField name="privateMetadata" type="object" required/>
+    <ResponseField name="state" type="string" required/>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "tokens": [
+    {
+      "animationUrl": null,
+      "backgroundColor": "#ff1122",
+      "createdAt": "2023-04-26T20:42:11.878Z",
+      "description": "Interesting bird NFT",
+      "externalUrl": "https://www.bitski.com/@Stapleverse",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+      "index": "0x3",
+      "metadata": {
+        "animation_url": null,
+        "background_color": null,
+        "description": "A very special NFT",
+        "external_url": "https://www.bitski.com/@Stapleverse",
+        "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+        "name": "NFT Token #1",
+        "properties": {
+          "level": 3
+        },
+        "youtube_url": null
+      },
+      "name": "Bird #1",
+      "privateMetadata": {},
+      "state": "MINTED",
+      "tokenTemplateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "youtubeUrl": null
+    }
+  ]
+}
+```
+</ResponseExample>

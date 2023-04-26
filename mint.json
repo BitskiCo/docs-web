@@ -94,7 +94,11 @@
                 "wallet-as-a-service/nft-apis/minting/get-v1-token-templates",
                 "wallet-as-a-service/nft-apis/minting/get-v1-token-template",
                 "wallet-as-a-service/nft-apis/minting/post-v1-token-templates",
-                "wallet-as-a-service/nft-apis/minting/put-v1-token-template"
+                "wallet-as-a-service/nft-apis/minting/put-v1-token-template",
+                "wallet-as-a-service/nft-apis/minting/get-v1-tokens",
+                "wallet-as-a-service/nft-apis/minting/get-v1-token",
+                "wallet-as-a-service/nft-apis/minting/post-v1-tokens",
+                "wallet-as-a-service/nft-apis/minting/patch-v1-token"
               ]
             },
             {
