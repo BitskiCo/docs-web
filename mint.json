@@ -55,7 +55,14 @@
         "wallet-as-a-service/pagination",
         {
           "group": "Wallet Creation APIs",
-          "pages": ["wallet-as-a-service/wallet-creation-apis/wallet-creation-flow"]
+          "pages": [
+            "wallet-as-a-service/wallet-creation-apis/overview",
+            "wallet-as-a-service/wallet-creation-apis/seed-phrases",
+            "wallet-as-a-service/wallet-creation-apis/hardware-wallets",
+            "wallet-as-a-service/wallet-creation-apis/hosted-hardware-wallets",
+            "wallet-as-a-service/wallet-creation-apis/on-chain-multisig-wallets",
+            "wallet-as-a-service/wallet-creation-apis/account-abstraction-wallets"
+          ]
         },
         {
           "group": "Wallet Experience APIs",

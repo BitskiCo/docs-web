@@ -1,0 +1,31 @@
+---
+title: "Account Abstraction Wallets"
+description: "Allow users to have secure and convenient on-chain wallets"
+---
+
+<Note>
+Account abstraction is still in progress, contact sales@bitski.com to get access.
+</Note>
+
+### What is ERC-4337?
+
+ERC-4337 is a smart wallet standard on Ethereum. The standard can be deployed
+on any Ethereum Virtual Machine (EVM) compatible blockchain and allows for a new
+Ethereum account capable of arbitrary verification logic.
+
+### How Does ERC-4337 Work?
+
+The new object introduced by the ERC-4337 standard is called `UserOperation`.
+When a user initiates a `UserOperation`, it is sent to an entirely separate
+mempool from the one used for processing transactions on the Ethereum mainnet.
+
+Using a separate mempool allows these accounts to bypass the normal Externally
+Owned Account (EOA) rules without affecting Ethereum’s underlying system and
+affords more transaction flexibility.
+
+One benefit is you can perform multiple transactions at once, and you can also
+pay gas fees on behalf of your users.
+
+Finally accounts can be configured to require multiple signatures and keys can
+be added and removed in a standard way to allow fine control over how keys are
+created, managed, and recovered.
