@@ -85,12 +85,16 @@
           "pages": [
             "wallet-as-a-service/nft-apis/overview",
             {
-              "group": "Contract APIs",
+              "group": "Minting APIs",
               "pages": [
-                "wallet-as-a-service/nft-apis/contracts/get-v1-contract",
-                "wallet-as-a-service/nft-apis/contracts/get-v1-contracts",
-                "wallet-as-a-service/nft-apis/contracts/patch-v1-contract",
-                "wallet-as-a-service/nft-apis/contracts/post-v1-contract"
+                "wallet-as-a-service/nft-apis/minting/get-v1-contract",
+                "wallet-as-a-service/nft-apis/minting/get-v1-contracts",
+                "wallet-as-a-service/nft-apis/minting/patch-v1-contract",
+                "wallet-as-a-service/nft-apis/minting/post-v1-contract",
+                "wallet-as-a-service/nft-apis/minting/get-v1-token-templates",
+                "wallet-as-a-service/nft-apis/minting/get-v1-token-template",
+                "wallet-as-a-service/nft-apis/minting/post-v1-token-templates",
+                "wallet-as-a-service/nft-apis/minting/put-v1-token-template"
               ]
             },
             {

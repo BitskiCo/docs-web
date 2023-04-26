@@ -1,0 +1,73 @@
+---
+title: "GET Token Template"
+api: "GET https://api.bitski.com/v1/apps/{appId}/token-templates/{tokenTemplateId}"
+authMethod: "bearer"
+description: "Get token template details"
+---
+
+<Note>This API requires the `apps` scope</Note>
+
+### Path
+
+<ParamField path="appId" type="string" required>
+  Your Bitski Application ID
+</ParamField>
+
+<ParamField path="tokenTemplateId" type="string" required>
+  The token template id
+</ParamField>
+
+### Response
+
+<ResponseField name="tokenTemplate" type="Token Template object" required>
+  <Expandable title="properties">
+    <ResponseField name="id" type="string" required/>
+    <ResponseField name="name" type="string"/>
+    <ResponseField name="animationUrl" type="string"/>
+    <ResponseField name="contractId" type="string" required/>
+    <ResponseField name="defaultMetadata" type="object" required/>
+    <ResponseField name="delayMinting" type="boolean" required/>
+    <ResponseField name="description" type="string" required/>
+    <ResponseField name="gatedContent" type="array of objects" required/>
+    <ResponseField name="image" type="string"/>
+    <ResponseField name="isDroplink" type="boolean" required/>
+    <ResponseField name="liveAt" type="date"/>
+    <ResponseField name="maxTokens" type="number" required/>
+    <ResponseField name="namingTemplate" type="string" required/>
+    <ResponseField name="payouts" type="object" required/>
+    <ResponseField name="previewAt" type="date" />
+    <ResponseField name="prices" type="array of object" required/>
+    <ResponseField name="published" type="boolean" required/>
+    <ResponseField name="salesEndAt" type="date" />
+    <ResponseField name="totalTokens" type="number" />
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Sample Response
+{
+  "auctions": [],
+  "tokenTemplate": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "animationUrl": null,
+    "contractId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "defaultMetadata": {},
+    "delayMinting": false,
+    "description": "A great token",
+    "gatedContent": [],
+    "image": "https://cdn.bitskistatic.com/tokens-raw/54676382-bab5-408d-afe2-fc6f160da4a8/06fd0294-a425-44c7-96e8-9d24757163b4.png",
+    "isDropLink": false,
+    "liveAt": null,
+    "maxTokens": 100,
+    "name": "Bird NFT",
+    "namingTemplate": "DEFAULT",
+    "payouts": {},
+    "previewAt": null,
+    "prices": [],
+    "published": false,
+    "salesEndAt": null
+    "totalTokens": null
+  }
+}
+```
+</ResponseExample>
