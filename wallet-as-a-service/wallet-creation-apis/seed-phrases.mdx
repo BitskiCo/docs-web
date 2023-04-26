@@ -1,0 +1,36 @@
+---
+title: "Seed Phrases"
+description: "Allow users to import existing wallets"
+---
+
+If your product allows users to import or generate seed phrase based wallets,
+you can use the [wallet experience](/wallet-as-a-service/wallet-experience-apis)
+and [NFT](/wallet-as-a-service/nft-apis) APIs to build great experiences.
+
+If you want to offer your users a simpler experience as a stepping stone to
+managing their own keys, you can also use the hosted hardware-backed wallet via
+the [wallet creation flow](/wallet-as-a-service/wallet-creation-apis/hosted-hardware-wallets).
+
+### Create a view-only account for the user-protected key.
+
+You can record the user's public address to associate the wallet with the user.
+
+```shell Create View Only Account
+curl -X POST https://api.bitski.com/v2/blockchain/accounts \
+-H "Authorization: Bearer <AUTH_TOKEN>" \
+-d '{
+  "kind": "view",
+  "coinType": 60,
+  "address": "0x3ef0bd6d0f917b303bdc0404e119d9dccb070d5c"
+}'
+```
+
+## Example
+
+The Bitski [iOS app](https://apps.apple.com/us/app/bitski-wallet/id1587199538)
+and [Chrome extension](https://apps.apple.com/us/app/bitski-wallet/id1587199538)
+show examples of seed phrase based wallet experiences:
+
+<Frame>
+![Seed Phrase Import](/assets/images/seed-phrase-7d067dae43ab123b6ac1fd31d9101add.jpeg)
+</Frame>
