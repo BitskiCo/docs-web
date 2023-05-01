@@ -2,8 +2,30 @@
 title: "SDK Overview"
 ---
 
-To get the most out of Bitski's JavaScript SDK, you need to be familiar with configuring OAuth2 login flows, and have a DApp that's ready to go. You can learn more about OAuth2 at the official site. Bitski's JavaScript SDK makes it easy to connect your DApp to users, wallets, and the Ethereum or Polygon blockchains. Both mainnet and testnets are supported (Rinkeby and Mumbai on Ethereum and Polygon, respectively). You can roll your own callback page, or use Bitski's static callback.html file.
+Bitski's JavaScript SDK is a standalone library which makes it easy to connect your Dapp to Bitski's OAuth2 
+authentication/authorization flow, and provides users a well-known interface for interacting with Web3 via username 
+and password. 
+
+Unlike other Web3 SDKs, Bitski doesn't have an opinionated approach to interacting with EVM-based chains
+like Ethereum, and works generally as a provider for any Web3-compatible library. 
+
+### Example Usage
+Below includes examples of signing in with Bitski via our SDK and leveraging our provider to sign a message via the most common
+EVM-based libraries today.
+
+<Card title="ethers.js" icon="hexagon-image" color="#4FA936" href="https://github.com/BitskiCo/bitski-js/tree/main/examples/ethers">
+  See an example of Bitski + ethers.js.
+</Card>
+<Card title="web3.js" icon="chart-network" color="#4FA936" href="https://github.com/BitskiCo/bitski-js/tree/main/examples/web3js">
+  See an example of Bitski + web3.js.
+</Card>
+<Card title="viem" icon="rocket" color="#4FA936" href="https://github.com/BitskiCo/bitski-js/tree/main/examples/viem">
+  See an example of Bitski + viem.
+</Card>
+
+---
 
 <Note>
   For more info on Bitski's JavaScript SDK, see our [Github repo](https://github.com/BitskiCo/bitski-js).
 </Note>
+
