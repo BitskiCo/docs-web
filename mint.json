@@ -71,6 +71,7 @@
             "wallet-as-a-service/wallet-experience-apis/get-v2-balances",
             "wallet-as-a-service/wallet-experience-apis/get-v2-tokens",
             "wallet-as-a-service/wallet-experience-apis/get-v2-profiles",
+            "wallet-as-a-service/wallet-experience-apis/get-v1-portfolio",
             "wallet-as-a-service/wallet-experience-apis/get-v2-floor-prices",
             "wallet-as-a-service/wallet-experience-apis/post-v2-batch-floor-prices",
             "wallet-as-a-service/wallet-experience-apis/post-v2-batch-historical-floor-prices",
