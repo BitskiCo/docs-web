@@ -1,0 +1,134 @@
+---
+title: "GET Portfolio"
+api: "POST https://api.bitski.com/graphql"
+description: "Get portfolio value for a given set of addresses."
+---
+
+<ParamField header="content-type" type="string" default="application/json" />
+
+<ParamField body="addressWithIds" type="array of objects"required>
+  <Expandable title="properties">
+    <ResponseField name="address" type="string" required>
+      The address to include in the portfolio.
+    </ResponseField>
+    <ResponseField name="blockchainAccountId" type="string" required>
+      The blockchain account id for this address.
+    </ResponseField>
+  </Expandable>
+</ParamField>
+
+
+### Examples
+
+<Frame>
+  ![Portfolio](/assets/images/portfolio-968e858a28a2be76f1f5a24821d002ea.png)
+</Frame>
+
+
+<RequestExample>
+
+```bash Request
+curl -X POST \
+-H 'Content-Type: application/json' \
+-d '{
+  "query": "query PortfolioNftCollections($input: PortfolioNftCollectionsInput!) {\n  portfolioNftCollections(input: $input) {\n    collections {\n      contract {\n        collectionV2 {\n          addressV2 {\n            ... on EVMAddress {\n              raw\n            }\n          }\n          floorPrice1DChange\n          image {\n            url\n          }\n        }\n        displayName\n      }\n      totalValue {\n        asEth {\n          amount {\n            formatted\n          }\n        }\n        asUsd {\n          amount {\n            formatted\n          }\n        }\n      }\n    }\n    totalValue {\n      sumAsEth {\n        amount {\n          formatted\n        }\n      }\n      sumAsUsd {\n        amount {\n          formatted\n        }\n      }\n    }\n    wallets {\n      address\n      totalValue {\n        sumAsEth {\n          amount {\n            formatted\n          }\n        }\n        sumAsUsd {\n          amount {\n            formatted\n          }\n        }\n      }\n    }\n  }\n}\n",
+  "variables":{"input":{"addressesWithIds":[{"address":"0x68aa0272da59f6292ae322f2c6e86dfbc18a6068","blockchainAccountId":"ed26316d-4fe6-4eb1-b4f7-4fd60b60bcbd"}]}},"operationName":"PortfolioNftCollections"
+}' \
+https://api.bitski.com/graphql
+```
+
+</RequestExample>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "data": {
+    "portfolioNftCollections": {
+      "collections": [
+      {
+          "contract": {
+            "collectionV2": {
+              "addressV2": {
+                "raw": "0x4db52a61dc491e15a2f78f5ac001c14ffe3568cb"
+              },
+              "floorPrice1DChange": 0,
+              "image": {
+                "url": "https://i.seadn.io/gcs/files/d1dd9de48b32f23da6535a028f1d8c36.jpg?w=500&auto=format"
+              }
+            },
+            "displayName": "Meme Lab by 6529"
+          },
+          "totalValue": {
+            "asEth": {
+              "amount": {
+                "formatted": "0.0073"
+              }
+            },
+            "asUsd": {
+              "amount": {
+                "formatted": "20.00"
+              }
+            }
+          }
+        },
+        {
+          "contract": {
+            "collectionV2": {
+              "addressV2": {
+                "raw": "0xa6c4df945dbb1d71fe9a8d71ae93b8d5c2bbebe4"
+              },
+              "floorPrice1DChange": null,
+              "image": {
+                "url": "https://i.seadn.io/gcs/files/78993e84b558b8dd531d8c8cd5b60df8.jpg?w=500&auto=format"
+              }
+            },
+            "displayName": "Snoop Dogg - XYZ"
+          },
+          "totalValue": {
+            "asEth": {
+              "amount": {
+                "formatted": "0.0022"
+              }
+            },
+            "asUsd": {
+              "amount": {
+                "formatted": "15.12"
+              }
+            }
+          }
+        }
+      ],
+      "totalValue": {
+        "sumAsEth": {
+          "amount": {
+            "formatted": "0.0095"
+          }
+        },
+        "sumAsUsd": {
+          "amount": {
+            "formatted": "35.12"
+          }
+        }
+      },
+      "wallets": [
+        {
+          "address": "0x68aa0272da59f6292ae322f2c6e86dfbc18a6068",
+          "totalValue": {
+            "sumAsEth": {
+              "amount": {
+                "formatted": "0.0095"
+              }
+            },
+            "sumAsUsd": {
+              "amount": {
+                "formatted": "35.12"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+</ResponseExample>
