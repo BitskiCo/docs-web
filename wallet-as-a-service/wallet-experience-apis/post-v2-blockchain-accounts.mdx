@@ -1,0 +1,42 @@
+---
+title: "POST Blockchain Accounts"
+api: "POST https://api.bitski.com/v2/blockchain/accounts"
+authMethod: "bearer"
+description: "Create a new blockchain account for the current user"
+---
+
+Accounts can be created for any key storage format, or even for accounts that
+aren't owned by a user. and used with the other wallet experience APIs.
+
+### Examples
+
+![Account List](assets/images/add-account-3b89fc2c6db22c67c55911d0e879a597.png)
+
+<RequestExample>
+```bash Request
+curl -X 'POST' 'https://api.bitski.com/v2/blockchain/accounts' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "displayName": "Demo Wallet",
+  "kind": "view",
+  "coinType": 60,
+  "address": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5"
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "id": "d5faf2b5-160f-4b9d-9042-716cb29a371f",
+  "profileId": "83928052-a28b-4503-a6d5-3fc777b71341",
+  "displayName": "Demo Wallet",
+  "kind": "view",
+  "coinType": 60,
+  "address": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+  "createdAt": "2023-04-13T20:32:49.484197",
+  "updatedAt": "2023-04-13T20:32:49.484197"
+}
+```
+</ResponseExample>
