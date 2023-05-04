@@ -52,7 +52,7 @@ uri = URI('https://api.bitski.com/v1/web3/mainnet')
 params = {id: 1,jsonrpc: '2.0', method: 'eth_accounts',params:[]}
 headers = {
     'Authorization' => "Bearer #{token}",
-    'X-API-Key' => "Bearer #{client_id}",
+    'X-API-Key' => client_id,
     'Content-Type' => 'application/json',
     'Accept' => 'application/json'
 }
