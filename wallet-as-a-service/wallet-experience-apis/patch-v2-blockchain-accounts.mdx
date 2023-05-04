@@ -1,0 +1,43 @@
+---
+title: "PATCH Blockchain Accounts"
+api: "PATCH https://api.bitski.com/v2/blockchain/accounts/{accountId}"
+authMethod: "bearer"
+description: "Update a users blockchain account details"
+---
+
+### Parameters
+
+<ParamField query="accountId" type="string" required />
+
+### Examples
+
+<Frame>
+  ![Account List](assets/images/accounts-e6bd8a4b6ac2f0b3d4a3420bb6cbb468.png)
+</Frame>
+
+<RequestExample>
+```bash Request
+curl -X 'PATCH' 'https://api.bitski.com/v2/blockchain/accounts/{accountId}' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  -d '{
+  "displayName": "My Demo Wallet",
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+``` json Sample Response
+{
+  "id": "d5faf2b5-160f-4b9d-9042-716cb29a371f",
+  "profileId": "83928052-a28b-4503-a6d5-3fc777b71341",
+  "displayName": "My Demo Wallet",
+  "kind": "view",
+  "coinType": 60,
+  "address": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+  "createdAt": "2023-04-13T20:32:49.484197",
+  "updatedAt": "2023-04-13T20:32:49.484197"
+}
+```
+</ResponseExample>
