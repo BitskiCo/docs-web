@@ -164,6 +164,7 @@
         {
           "group": "Connectors",
           "pages": [
+            "integrations/connectors/injected-wallet",
             "integrations/connectors/rainbowkit",
             "integrations/connectors/walletconnect",
             "integrations/connectors/block-native"
