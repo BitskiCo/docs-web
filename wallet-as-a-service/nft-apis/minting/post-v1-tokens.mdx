@@ -1,8 +1,8 @@
 ---
-title: "POST Tokens"
-api: "POST https://api.bitski.com/v1/apps/{appId}/tokens"
-authMethod: "bearer"
-description: "Create a tokens"
+title: 'POST Tokens'
+api: 'POST https://api.bitski.com/v1/apps/{appId}/tokens'
+authMethod: 'bearer'
+description: 'Create a token'
 ---
 
 <Note>This API requires the `apps` scope</Note>
@@ -53,20 +53,20 @@ curl -X 'POST' \
 
 <ResponseField name="token" type="Token object" required>
   <Expandable title="properties">
-    <ResponseField name="id" type="string" required/>
-    <ResponseField name="tokenTemplateId" type="string" required/>
-    <ResponseField name="name" type="string" required/>
-    <ResponseField name="animationUrl" type="string"/>
-    <ResponseField name="backgroundColor" type="string"/>
-    <ResponseField name="youtubeUrl" type="string"/>
-    <ResponseField name="createdAt" type="date" required/>
-    <ResponseField name="description" type="string" required/>
+    <ResponseField name="id" type="string" required />
+    <ResponseField name="tokenTemplateId" type="string" required />
+    <ResponseField name="name" type="string" required />
+    <ResponseField name="animationUrl" type="string" />
+    <ResponseField name="backgroundColor" type="string" />
+    <ResponseField name="youtubeUrl" type="string" />
+    <ResponseField name="createdAt" type="date" required />
+    <ResponseField name="description" type="string" required />
     <ResponseField name="externalUrl" type="string" />
     <ResponseField name="image" type="string" />
-    <ResponseField name="index" type="string" required/>
-    <ResponseField name="metadata" type="object" required/>
-    <ResponseField name="privateMetadata" type="object" required/>
-    <ResponseField name="state" type="string" required/>
+    <ResponseField name="index" type="string" required />
+    <ResponseField name="metadata" type="object" required />
+    <ResponseField name="privateMetadata" type="object" required />
+    <ResponseField name="state" type="string" required />
   </Expandable>
 </ResponseField>
 
