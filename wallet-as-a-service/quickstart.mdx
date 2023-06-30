@@ -1,0 +1,183 @@
+Bitski's Wallet-as-a-Service (WaaS) consists of 5 main components:
+
+1. Creating wallets
+2. Minting tokens (via API or through a checkout flow)
+3. Getting wallet activities and balances
+4. Signing transactions with a wallet
+5. Offboarding wallets to self-custody or other platforms
+
+These components can all be used together to create your blockchain experience, or they can be mixed and matched with other services for certain functionality. For instance, you could use [Syndicate](https://syndicate.io/) for minting, but use the other services from our toolkit to create wallets and get activities and balances for those wallets.
+
+### Demo 
+
+If you would like to see the Bitski WaaS APIs in use today, you can visit our demo page: 
+
+> https://waas-demo.bitski.com
+
+This demo is a simple blockchain enabled experience that uses our WaaS services, and shows how you can integrate them with your existing auth system (using [Auth0](https://auth0.com/) as an example).
+
+You can also see the code for this example app [here](https://github.com/BitskiCo/waas-demo).
+
+### Creating Wallets
+
+To create a wallet with Bitski, you can use the `federated-accounts` API:
+
+```js
+const response = await fetch(`https://api.bitski.com/v2/federated-accounts`, {
+  method: 'POST',
+  headers: {
+    Authorization: `Basic ${btoa(`${CREDENTIAL_ID}:${CREDENTIAL_SECRET}`)}`,
+    'User-Agent': 'waas-demo/0.0.1',
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify({
+    userId,
+  }),
+});
+
+const { account } = await response.json();
+```
+
+This API requires that you have setup a social login provider for your app (To do this, contact the [Bitski team](mailto:sales@bitski.com)) and that you have generated a credential via our [developer portal](https://developer.bitski.com).
+
+The federated accounts API should be sent a user ID from your system. This ID should be unique to that user, and should not change over time (e.g. it should be their primary ID). It can be any string based identifier.
+
+The API returns a blockchain account which is the public address of the generated wallet. This should be stored in your system for reference, so you can tell users what their wallet address is, load their activities and balances, and mint directly to it.
+
+This API should be called from your backend to keep the credential secret.
+
+### Minting Tokens
+
+Now that your user has a fully functional wallet, they are ready to recieve their first NFT. You can do this via Bitski's minting API:
+
+```js
+fetch(`https://api.bitski.com/v1/apps/${APP_ID}/tokens`, {
+  method: 'POST',
+  headers: {
+    Authorization: `Basic ${btoa(`${CREDENTIAL_ID}:${CREDENTIAL_SECRET}`)}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    initialOwner,
+    token: {
+      contractId,
+      name: 'Your first NFT!',
+      image: 'https://placekitten.com/200/200',
+    },
+  }),
+});
+```
+
+This API requires:
+
+1. A credential to authenticate, which should be the same credential you used before.
+2. `APP_ID`, which should be the ID of your Bitski application that can be found in the developer portal.
+3. `initialOwner`, which should be the address that will receive the NFT.
+4. `contractId`, which should be the ID of the contract you want to mint from. You can set up and deploy a contract and get its ID in the developer portal.
+5. Other details about the token, such as its `name`, `image`, etc. (See the [API documentation](/wallet-as-a-service/nft-apis/minting/post-v1-tokens) for all possible values).
+
+As above, this API should be called from your backend to keep the credential secret.
+
+#### Getting Activities and Balances
+
+Once your user has their first NFT, you'll want to display it to them. You can do this with our balances API:
+
+```js
+fetch(
+  `https://api.bitski.com/v2/balances?address=${address}&chainIds=${chainId}&nfts=true`
+);
+```
+
+This API does not require authentication and can be used directly in your app to load wallet balances. It does require the `address` that you are trying to load, and the `chainId` of the chain that you are loading NFT details from in _decimal_ form (`1` for Ethereum Mainnet, `137` for Polygon, etc.).
+
+### Signing Transactions
+
+Now that your user can see their NFTs in your app, they may want to do something with them! You can use our transaction flow to allow your user to send NFTs, sign messages, and generally do any kind of signature operation that an Ethereum wallet can do. The flow consists of two steps:
+
+1. You create a proposed transaction, send it to Bitski, and receive a transaction ID
+2. The user is redirected to the Bitski Signer application with the transaction ID, and the user then approves the transaction.
+
+The Bitski Signer is a fully themable experience, so it can integrate seamlessly into your application's look and feel. The separation of the two steps above, however, means that there is no way for you to sign programmatically on the user's behalf. This separation of concerns protects both companies who use our WaaS services and their users, as it means that there is no custodial relationship for applications that use the Bitski WaaS, and that users can trust Bitski to always show them the details of a transaction before signing.
+
+To create a transaction, you can install the Bitski provider in your app:
+
+```sh
+$ npm install bitski-provider
+```
+
+This provider is a standard [ERC-1193](https://eips.ethereum.org/EIPS/eip-1193) Web3 provider which can be used with JavaScript libraries such as [web3.js](https://web3js.readthedocs.io/) or [ethers.js](https://docs.ethers.org/), or can be used directly if preferred.
+
+```js
+import { createBitskiProvider } from 'bitski-provider';
+
+const provider = createBitskiProvider({
+  appId: APP_ID,
+  transactionCallbackUrl: window.location.origin + '/transaction-callback',
+  waas: {
+    userId,
+    transactionProxyUrl: window.location.origin + '/api/transactions',
+  },
+});
+```
+
+To create a provider, you need to set a few values:
+
+1. `APP_ID`: This should be the same application ID as above.
+2. `transactionCallbackUrl`: This is the URL that the user will be returned to once signing has completed. The result of the transaction is included in the URL as a query parameter, allowing you to use it in your app.
+3. `waas.userId`: This setting tells Bitski which user you are trying to propose a transaction for. It should be the same ID that was used when creating the user in step 1.
+4. `waas.transactionProxyUrl`: This URL should point to a proxy endpoint that is setup on your server, which will forward transaction proposal requests to our API (see below).
+
+#### Setting up the transaction proxy
+
+In order to create a transaction, you must send an API request with your credential for authentication. Because this credential needs to remain secret, it cannot be included in your app's code that is sent to the browser. Instead, you must proxy the request that the provider makes through your backend, where you can add the credential as an authentication handler.
+
+Here is an example of how you might do this via an Express.js server:
+
+```js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+const { CREDENTIAL_ID, CREDENTIAL_SECRET } = process.env;
+
+app.use(express.json());
+
+app.post('/api/transactions', async (req, res) => {
+  const response = await fetch('https://api.bitski.com/v1/transactions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${btoa(`${CREDENTIAL_ID}:${CREDENTIAL_SECRET}`)}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(req.body),
+  });
+
+  const json = await response.json();
+
+  res.send(json);
+});
+
+app.listen(port, () => {
+  console.log(`Example transaction proxy listening on port ${port}`);
+});
+```
+
+### Offboarding Wallets
+
+With all of the above components, you can create create whatever blockchain experience you want for your users. You can give them a wallet, send them tokens, and allow them to transact, all without ever leaving your application.
+
+However, part of the value of Web3 is that it is an open ecosystem that allows users to freely migrate around and interact with many other types of experiences. Normally, to leave an integrated Wallet-as-a-Service experience, your users would have to learn how to setup their own account and then transfer all of their assets to it (and pay all of the gas fees to do so). If you want to make this easier for your users though, Bitski provides a simpler mechanism for offboarding.
+
+You can link users to Bitski's offboarding flow, where they may claim there wallet as a Bitski user. This will setup their wallet as a Bitski account and onboard them to our external wallet experience. This does not change how the user interacts with your app - the wallet will still be connected and can still interact with your app, with no changes to your code. The only difference is, since the user is no longer a WaaS user, you will not be charged for their account any longer.
+
+You can create the link to the offboarding flow for your users like so:
+
+```js
+const offboardingUrl = `https://user.bitski.com/claim?provider=fa_${btoa(APP_ID)}`;
+```
+
+Where `APP_ID` is the same application ID as above.
+
+### Conclusion
+
+Now that you know about all of the Bitski Wallet-as-a-Service components, you should be able to build a blockchain enabled experience with ease. If you have any questions or would like to sign up for this service, please [contact the Bitski team](mailto:sales@bitski.com).

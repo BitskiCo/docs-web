@@ -51,6 +51,7 @@
       "group": "Wallet as a Service (WaaS)",
       "pages": [
         "wallet-as-a-service/overview",
+        "wallet-as-a-service/quickstart",
         "wallet-as-a-service/errors",
         "wallet-as-a-service/pagination",
         {
@@ -150,9 +151,7 @@
         },
         {
           "group": "SDK",
-          "pages": [
-            "wallet-as-a-service/sdk/sdk-overview"
-          ]
+          "pages": ["wallet-as-a-service/sdk/sdk-overview"]
         }
       ]
     },
