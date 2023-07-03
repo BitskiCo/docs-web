@@ -31,11 +31,6 @@
       "name": "Twitter",
       "icon": "twitter",
       "url": "https://twitter.com/bitski"
-    },
-    {
-      "name": "Discord",
-      "icon": "discord",
-      "url": "https://discord.com/invite/bitski"
     }
   ],
   "navigation": [
@@ -175,8 +170,7 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/bitski",
-    "discord": "https://discord.com/invite/bitski"
+    "twitter": "https://twitter.com/bitski"
   },
   "analytics": {
     "ga4": {
