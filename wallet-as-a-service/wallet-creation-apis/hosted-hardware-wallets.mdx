@@ -16,7 +16,7 @@ import * as oauth from 'oauth4webapi';
 const ISSUER = 'https://account.bitski.com';
 const { BITSKI_CLIENT_ID, BITSKI_CLIENT_SECRET } = platform.env;
 
-export async function createAccount(userId: string): Promise<string> {
+export async function createAccount(userId: string): Promise<string[]> {
 
     // Generate client credentials for your service via standard OAuth
     const issuer = new URL(ISSUER);
@@ -48,9 +48,9 @@ export async function createAccount(userId: string): Promise<string> {
     });
 
     // The response contains an etherum `0x` address
-    const { account } = await newAccount.json();
+    const { accounts } = await newAccount.json();
 
-    return account;
+    return accounts;
 }
 ```
 
@@ -60,6 +60,6 @@ If enabled, users can transfer their wallets out of the WaaS offering by claimin
 
 ### Demo
 
-See https://shadow-wallets-demo.pages.dev for an example of creating and claiming accounts via Twitter.
+See https://desolaris-demo.bitski.com for an example of creating and claiming accounts via Twitter.
 
 ![Claim Wallet Example](/assets/images/claim-wallet-d308a1336a4c0910f1f1206411535527.png)
