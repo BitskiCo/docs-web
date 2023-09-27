@@ -108,6 +108,8 @@
                 "wallet-as-a-service/nft-apis/commerce/get-v1-products",
                 "wallet-as-a-service/nft-apis/commerce/get-v1-auction",
                 "wallet-as-a-service/nft-apis/commerce/get-v1-store",
+                "wallet-as-a-service/nft-apis/commerce/post-v1-payment-methods",
+                "wallet-as-a-service/nft-apis/commerce/get-v1-payment-methods",
                 "wallet-as-a-service/nft-apis/commerce/post-v1-orders",
                 "wallet-as-a-service/nft-apis/commerce/get-v1-order",
                 "wallet-as-a-service/nft-apis/commerce/patch-v1-payment",
