@@ -8,37 +8,21 @@ A Bitski powered Ethereum wallet can be connected to your user's account using a
 
 ### Node JS Example
 
-Here is an example using the nodejs [oauth4webapi](https://www.npmjs.com/package/oauth4webapi) client, but the flow will work using an OAuth client for any language. There are only two endpoints required, one to retrieve client credentials, and one to generate accounts for your user.
+Here is an example using nodejs. There are only one endpoint required and it can be called at any time without requiring any user interaction.
 
 ``` ts
-import * as oauth from 'oauth4webapi';
-
 const ISSUER = 'https://account.bitski.com';
-const { BITSKI_CLIENT_ID, BITSKI_CLIENT_SECRET } = platform.env;
+const { BITSKI_CREDENTIAL_ID, BITSKI_CREDENTIAL_SECRET } = platform.env;
 
 export async function createAccount(userId: string): Promise<string[]> {
-
-    // Generate client credentials for your service via standard OAuth
-    const issuer = new URL(ISSUER);
-    const as = await oauth
-      .discoveryRequest(issuer)
-      .then((response) => oauth.processDiscoveryResponse(issuer, response));
-
-    const client: oauth.Client = {
-      client_id: BITSKI_CLIENT_ID,
-      client_secret: BITSKI_CLIENT_SECRET,
-      token_endpoint_auth_method: 'client_secret_basic',
-    };
-
-    const resp = await oauth.clientCredentialsGrantRequest(as, client);
-    const { access_token } = await resp.json();
+    var credentials = btoa(`{BITSKI_CREDENTIAL_ID}:{BITSKI_CREDENTIAL_SECRET}`);
 
     // Use client credentials to create a wallet for your user.
     // The `userId` here can be any string to identify the user.
     const newAccount = await fetch(`${ISSUER}/v2/federated-accounts`, {
       method: 'POST',
       headers: {
-        authorization: `Bearer ${access_token}`,
+        authorization: `Basic ${credentials}`,
         'User-Agent': 'account-creation-example/1.0.0',
         'content-type': 'application/json',
       },
