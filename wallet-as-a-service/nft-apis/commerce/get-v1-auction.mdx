@@ -16,13 +16,13 @@ description: "Get details about an auction."
 
 ### Response
 
-<ResponseField name="auction" type="Auction object" required>
+<ResponseField name="auction" type="object" required>
   <Expandable>
     <ResponseField name="id" type="string" required/>
     <ResponseField name="auctionContractAddress" type="string" required/>
     <ResponseField name="auctionStandard" type="string" required/>
     <ResponseField name="automaticSettlement" type="boolean" required/>
-    <ResponseField name="bids" type="array of objects" required/>
+    <ResponseField name="bids" type="array" required/>
     <ResponseField name="ended" type="boolean" required/>
     <ResponseField name="externalId" type="string"/>
     <ResponseField name="network" type="string" required/>

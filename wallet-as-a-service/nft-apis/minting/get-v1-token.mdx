@@ -19,7 +19,7 @@ description: "Get token details"
 
 ### Response
 
-<ResponseField name="token" type="Token object" required>
+<ResponseField name="token" type="object" required>
   <Expandable title="properties">
     <ResponseField name="id" type="string" required/>
     <ResponseField name="tokenTemplateId" type="string" required/>
@@ -27,7 +27,7 @@ description: "Get token details"
     <ResponseField name="animationUrl" type="string"/>
     <ResponseField name="backgroundColor" type="string"/>
     <ResponseField name="youtubeUrl" type="string"/>
-    <ResponseField name="createdAt" type="date" required/>
+    <ResponseField name="createdAt" type="string" required/>
     <ResponseField name="description" type="string" required/>
     <ResponseField name="externalUrl" type="string" />
     <ResponseField name="image" type="string" />

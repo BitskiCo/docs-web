@@ -51,17 +51,17 @@ curl -X 'POST' \
     <ResponseField name="defaultMetadata" type="object" required/>
     <ResponseField name="delayMinting" type="boolean" required/>
     <ResponseField name="description" type="string" required/>
-    <ResponseField name="gatedContent" type="array of objects" required/>
+    <ResponseField name="gatedContent" type="array" required/>
     <ResponseField name="image" type="string"/>
     <ResponseField name="isDroplink" type="boolean" required/>
-    <ResponseField name="liveAt" type="date"/>
+    <ResponseField name="liveAt" type="string"/>
     <ResponseField name="maxTokens" type="number" required/>
     <ResponseField name="namingTemplate" type="string" required/>
     <ResponseField name="payouts" type="object" required/>
-    <ResponseField name="previewAt" type="date" />
-    <ResponseField name="prices" type="array of object" required/>
+    <ResponseField name="previewAt" type="string" />
+    <ResponseField name="prices" type="array" required/>
     <ResponseField name="published" type="boolean" required/>
-    <ResponseField name="salesEndAt" type="date" />
+    <ResponseField name="salesEndAt" type="string" />
     <ResponseField name="totalTokens" type="number" />
   </Expandable>
 </ResponseField>

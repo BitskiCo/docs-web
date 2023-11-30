@@ -10,7 +10,7 @@ api: "GET https://api.bitski.com/v1/products/{productId}"
 
 ### Response
 
-<ParamField body="products" type="array of objects" required>
+<ParamField body="products" type="array" required>
 
     <Expandable title ="show objects" >
 
@@ -22,7 +22,7 @@ api: "GET https://api.bitski.com/v1/products/{productId}"
         <ResponseField name="totalAvailable" type="" required/>
         <ResponseField name="totalSold" type="" required/>
 
-        <ResponseField name="prices" type="array of objects" required>
+        <ResponseField name="prices" type="array" required>
 
             <Expandable title ="show objects" >
 
@@ -34,7 +34,7 @@ api: "GET https://api.bitski.com/v1/products/{productId}"
 
         </ResponseField>
 
-        <ResponseField name="auctions" type="array of objects" required>
+        <ResponseField name="auctions" type="array" required>
 
             <Expandable title ="show objects" >
 
@@ -44,10 +44,10 @@ api: "GET https://api.bitski.com/v1/products/{productId}"
 
         </ResponseField>
 
-        <ResponseField name="createdAt" type="date-time" required/>
-        <ResponseField name="liveAt" type="date-time" required/>
-        <ResponseField name="previewAt" type="date-time" required/>
-        <ResponseField name="salesEndAt" type="date-time" required/>
+        <ResponseField name="createdAt" type="string" required/>
+        <ResponseField name="liveAt" type="string" required/>
+        <ResponseField name="previewAt" type="string" required/>
+        <ResponseField name="salesEndAt" type="string" required/>
         <ResponseField name="username" type="string" required/>
         <ResponseField name="purchaseLink" type="string" required/>
 
@@ -60,7 +60,7 @@ api: "GET https://api.bitski.com/v1/products/{productId}"
 </ParamField>
 
 <ParamField body= "error" type="object" required >
-  
+
     <Expandable title ="show objects" >
 
         <ResponseField name="message" type="string" />

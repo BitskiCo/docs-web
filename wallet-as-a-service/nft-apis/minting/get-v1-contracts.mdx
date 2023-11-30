@@ -25,12 +25,12 @@ description: "List collections on dedicated or shared contracts across chains"
   Filter by access type.
 </ParamField>
 
-### Examples 
+### Examples
 ![Example contract](/assets/images/contracts-1ff30a15027e62431e3c7f937502b8ca.png "Example Contract UI")
 
 ### Response
 
-<ResponseField name="contracts" type="array of objects" required>
+<ResponseField name="contracts" type="array" required>
   <Expandable title="properties">
     <ResponseField name="id" type="string" required/>
     <ResponseField name="deploymentState" type="string" required/>
@@ -42,7 +42,7 @@ description: "List collections on dedicated or shared contracts across chains"
     <ResponseField name="contractType" type="string">
       One of `UNKNOWN`, `NON_FUNGIBLE_AUCTION`, `NON_FUNGIBLE`, `SEMI_FUNGIBLE`, `ZORA_AUCTION`
     </ResponseField>
-    <ResponseField name="tokenTemplates" type="array of objects" />
+    <ResponseField name="tokenTemplates" type="array" />
     <ResponseField name="fee" type="number" />
     <ResponseField name="accessType" type="string" required>
       One of `OWNED`, `WATCHED`
