@@ -18,13 +18,13 @@ api: "POST https://api.bitski.com/v1/apps/{appId}/tokens"
 
 ### Response
 
-<ParamField body="tokens" type="array of objects" required>
+<ParamField body="tokens" type="array" required>
 
     <Expandable title ="show objects" >
 
         <ResponseField name="id" type="string" required/>
         <ResponseField name="tokenTemplateId" type="string" />
-        <ResponseField name="createdAt" type="date-time" required/>
+        <ResponseField name="createdAt" type="string" required/>
         <ResponseField name="index" type="string" />
         <ResponseField name="image" type="uri" />
         <ResponseField name="external_url" type="uri" />
@@ -42,7 +42,7 @@ api: "POST https://api.bitski.com/v1/apps/{appId}/tokens"
 </ParamField>
 
 <ParamField body= "error" type="object" required >
-  
+
     <Expandable title ="show objects" >
 
         <ResponseField name="status" type="string" />

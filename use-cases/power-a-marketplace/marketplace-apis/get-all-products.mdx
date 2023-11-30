@@ -30,19 +30,19 @@ Product to start from when paginating.
 
 ### Response
 
-<ParamField body="products" type="array of objects" required>
+<ParamField body="products" type="array" required>
 
     <Expandable title ="show objects" >
 
         <ResponseField name="id" type="string" required/>
         <ResponseField name="network" type="string" required/>
         <ResponseField name="tokenContractAddress" type="string" required/>
-        <ResponseField name="tokenMetadata" type="" required/>
-        <ResponseField name="gatedContenct" type="" required/>
-        <ResponseField name="totalAvailable" type="" required/>
-        <ResponseField name="totalSold" type="" required/>
+        <ResponseField name="tokenMetadata" type="object" required/>
+        <ResponseField name="gatedContent" type="object" required/>
+        <ResponseField name="totalAvailable" type="number" required/>
+        <ResponseField name="totalSold" type="number" required/>
 
-        <ResponseField name="prices" type="array of objects" required>
+        <ResponseField name="prices" type="array" required>
 
             <Expandable title ="show objects" >
 
@@ -54,7 +54,7 @@ Product to start from when paginating.
 
         </ResponseField>
 
-        <ResponseField name="auctions" type="array of objects" required>
+        <ResponseField name="auctions" type="array" required>
 
             <Expandable title ="show objects" >
 
@@ -64,10 +64,10 @@ Product to start from when paginating.
 
         </ResponseField>
 
-        <ResponseField name="createdAt" type="date-time" required/>
-        <ResponseField name="liveAt" type="date-time" required/>
-        <ResponseField name="previewAt" type="date-time" required/>
-        <ResponseField name="salesEndAt" type="date-time" required/>
+        <ResponseField name="createdAt" type="string" required/>
+        <ResponseField name="liveAt" type="string" required/>
+        <ResponseField name="previewAt" type="string" required/>
+        <ResponseField name="salesEndAt" type="string" required/>
         <ResponseField name="username" type="string" required/>
         <ResponseField name="purchaseLink" type="string" required/>
 
@@ -80,7 +80,7 @@ Product to start from when paginating.
 </ParamField>
 
 <ParamField body= "error" type="object" required >
-  
+
     <Expandable title ="show objects" >
 
         <ResponseField name="message" type="string" />

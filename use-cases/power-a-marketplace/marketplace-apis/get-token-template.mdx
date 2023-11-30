@@ -13,7 +13,7 @@ api:
 
 ### Response
 
-<ParamField body="tokenTemplate" type="array of objects" required>
+<ParamField body="tokenTemplate" type="array" required>
 
     <Expandable title ="show objects" >
 
@@ -24,23 +24,23 @@ api:
         <ResponseField name="name" type="string" />
         <ResponseField name="animationUrl" type="string" />
         <ResponseField name="defaultMetadata" type="object" />
-        <ResponseField name="gatedContent" type="array of objects" required/>
+        <ResponseField name="gatedContent" type="array" required/>
         <ResponseField name="kind" type="string" required/>
         <ResponseField name="url" type="uri" />
         <ResponseField name="filename" type="string" />
         <ResponseField name="totalTokens" type="integer" />
         <ResponseField name="maxTokens" type="integer" />
-        <ResponseField name="prices" type="array of objects" />
-        <ResponseField name="id" type="" />
+        <ResponseField name="prices" type="array" />
+        <ResponseField name="id" type="string" />
         <ResponseField name="currency" type="string" />
         <ResponseField name="price" type="string" />
         <ResponseField name="published" type="boolean" />
-        <ResponseField name="liveAt" type="date-time" />
-        <ResponseField name="salesEndAt" type="date-time" />
+        <ResponseField name="liveAt" type="string" />
+        <ResponseField name="salesEndAt" type="string" />
         <ResponseField name="payouts" type="object" />
         <ResponseField name= "delayMinting" type="boolean" />
 
-        <ResponseField name="auctions" type="array of objects" required>
+        <ResponseField name="auctions" type="array" required>
 
             <Expandable title ="show objects" >
 
@@ -55,7 +55,7 @@ api:
 </ParamField>
 
 <ParamField body= "error" type="object" required >
-  
+
     <Expandable title ="show objects" >
 
         <ResponseField name="status" type="string" />
