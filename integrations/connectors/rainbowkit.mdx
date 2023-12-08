@@ -1,23 +1,26 @@
 ---
 title: "RainbowKit"
 ---
-### Code Sample
-In addition to providing deeper integrations via our JS SDK and APIs, Bitski also offers a set of plug-and-play connectors which work with the existing Web3 ecosystem. 
 
-Use the following code snippets below to easily add Bitski to your RainbowKit setup. 
+### Code Sample
+
+In addition to providing deeper integrations via our JS SDK and APIs, Bitski also offers a set of plug-and-play connectors which work with the existing Web3 ecosystem.
+
+Use the following code snippets below to easily add Bitski to your RainbowKit setup.
 
 These code snippets provide a Bitski connector which can hook into our browser extension if installed. As a fallback, users can also login or sign up for a Bitksi Wallet
-using username and password. This gives Dapps the ability to not only provide a native Web3 solution for crypto natives, but also provide an intuitive onboarding 
-process for new users. 
+using username and password. This gives Dapps the ability to not only provide a native Web3 solution for crypto natives, but also provide an intuitive onboarding
+process for new users.
 
 <Note>
-Required dependencies: [@rainbow-me/rainbowkit](https://www.rainbowkit.com), [bitski](https://github.com/BitskiCo/bitski-js), [wagmi](https://wagmi.sh).
-See the CodeSandbox's `package.json` for more details.
+  Required dependencies: [@rainbow-me/rainbowkit](https://www.rainbowkit.com),
+  [bitski](https://github.com/BitskiCo/bitski-js), [wagmi](https://wagmi.sh).
+  See the CodeSandbox's `package.json` for more details.
 </Note>
 
 <CodeGroup>
 
-``` tsx app.tsx
+```tsx app.tsx
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { connectorsForWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
@@ -25,9 +28,9 @@ import type { AppProps } from 'next/app';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { arbitrum, goerli, mainnet, optimism, polygon } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
-import { 
+import {
   injectedWallet,
-  walletConnectWallet, 
+  walletConnectWallet,
   rainbowWallet,
   metaMaskWallet,
   coinbaseWallet
@@ -94,7 +97,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-``` tsx bitskiWallet.tsx
+```tsx bitskiWallet.tsx
 import { Chain, Wallet } from "@rainbow-me/rainbowkit";
 import {
   Ethereum,
@@ -179,20 +182,20 @@ export const bitskiWallet = ({
   chains,
   ...options
 }: BitskiWalletOptions & InjectedConnectorOptions): Wallet => ({
-  id: 'bitski',
-  name: 'Bitski',
+  id: "bitski",
+  name: "Bitski",
   installed:
     !!bitski ||
-    (typeof window !== 'undefined' &&
-      typeof window.ethereum !== 'undefined' &&
+    (typeof window !== "undefined" &&
+      typeof window.ethereum !== "undefined" &&
       ((window.ethereum as any).isBitski === true ||
         !!window.ethereum.providers?.find((p: any) => p.isBitski === true))),
-  iconUrl: 'https://cdn.bitskistatic.com/docs-web/bitskiWallet.svg',
-  iconBackground: '#fff',
+  iconUrl: "https://cdn.bitskistatic.com/docs-web/bitskiWallet.svg",
+  iconBackground: "#fff",
   downloadUrls: {
     browserExtension:
-      'https://chrome.google.com/webstore/detail/bitski/feejiigddaafeojfddjjlmfkabimkell',
-    ios: 'https://apps.apple.com/us/app/bitski-wallet/id1587199538',
+      "https://chrome.google.com/webstore/detail/bitski/feejiigddaafeojfddjjlmfkabimkell",
+    ios: "https://apps.apple.com/us/app/bitski-wallet/id1587199538",
   },
   createConnector: () => ({
     connector: new BitskiConnector({
@@ -203,14 +206,27 @@ export const bitskiWallet = ({
   }),
 });
 ```
-</CodeGroup>
----
+
+## </CodeGroup>
+
 ### Links
+
 <CardGroup cols={2}>
-<Card title="CodeSandbox" icon="codepen" color="#ea5a0c" href="https://codesandbox.io/p/github/chronicIntrovert/my-rainbowkit-app/main?file=%2FREADME.md&workspace=%257B%2522activeFilepath%2522%253A%2522%252Fpages%252F_app.tsx%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%252C%2522%252Fpages%252F_app.tsx%2522%252C%2522%252Fpages%252FbitskiWallet.ts%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clgfj5x50000x3b6h0qlx0dhw%2522%253A%257B%2522key%2522%253A%2522clgfj5x50000x3b6h0qlx0dhw%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clgfj6g23007y3b6hr3lmmpkk%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522key%2522%253A%2522clgfj6elk005d3b6heowtzj3w%2522%252C%2522isMinimized%2522%253Atrue%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clgfj5x50000x3b6h0qlx0dhw%2522%252C%2522spacesOrder%2522%253A%255B%2522clgfj5x50000x3b6h0qlx0dhw%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D">
+  <Card
+    title="CodeSandbox"
+    icon="codepen"
+    color="#ea5a0c"
+    href="https://codesandbox.io/p/github/chronicIntrovert/my-rainbowkit-app/main"
+  >
     View an interactive demo of the Bitski connector for RainbowKit
   </Card>
-  <Card title="More info" icon="square-info" color="#0285c7" href="https://www.rainbowkit.com/docs/custom-wallet-list#bitski">
-    If you're tailoring your Dapp to only crypto natives, see the official RainbowKit connector for Bitski
+  <Card
+    title="More info"
+    icon="square-info"
+    color="#0285c7"
+    href="https://www.rainbowkit.com/docs/custom-wallet-list#bitski"
+  >
+    If you're tailoring your Dapp to only crypto natives, see the official
+    RainbowKit connector for Bitski
   </Card>
 </CardGroup>
