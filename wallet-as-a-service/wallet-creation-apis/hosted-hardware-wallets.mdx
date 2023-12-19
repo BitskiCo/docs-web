@@ -6,6 +6,14 @@ A Bitski powered Ethereum wallet can be connected to your user's account using a
 
 ![Wallet Creation Flow](/assets/images/wallet-creation-flow.png)
 
+### Curl Example
+
+``` bash
+curl https://api.bitski.com/v2/federated-accounts \
+  --user $CREDENTIAL_ID:$CREDENTIAL_SECRET \
+  --json '{"userId": "YOUR_USER_ID"}'
+```
+
 ### Node JS Example
 
 Here is an example using nodejs. There are only one endpoint required and it can be called at any time without requiring any user interaction.
