@@ -1,0 +1,25 @@
+---
+title: "Signing"
+description: "Zero-hassle signing"
+---
+
+### **Chains**
+If you’ve ever signed or submitted a transaction with Wagmi, then there’s nothing new to report.  Continue using the APIs you are familiar with.  [All of Wagmi’s hooks work out of the box.](https://wagmi.sh/react/api/hooks)
+
+```jsx
+import { useSignMessageAsync, useSendTransactionAsync } from 'wagmi';
+
+const { connector } = useAccount()
+if(!connector) {
+    return
+}
+
+const signedMessage = await signMessageAsync({
+    message: 'Welcome to Bitski WaaS',
+    connector: connector,
+});
+```
+
+### Bitski Signer
+
+Once you submit a transaction or sign message, the Bitski signer modal will popup with your branding.  This includes all of the features that Bitski Signer offers, such as simulated transactions.

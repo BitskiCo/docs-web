@@ -43,6 +43,10 @@
       "pages": ["products/bitski-wallet", "products/droplinks/droplinks"]
     },
     {
+      "group": "React SDK",
+      "pages": ["react-sdk/quickstart", "react-sdk/authentication", "react-sdk/signing"]
+    },
+    {
       "group": "Wallet as a Service (WaaS)",
       "pages": [
         "wallet-as-a-service/overview",

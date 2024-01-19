@@ -1,0 +1,55 @@
+---
+title: "Quickstart"
+description: "Solve all your dApp's authentication challenges with a simple React Widget."
+---
+
+We aim to use tools you are already familiar with, mainly [Wagmi](https://wagmi.sh/react/api/hooks) and [Viem](https://viem.sh) so you can focus on building your application.
+
+To get started, create an account in the Bitski Developer portal.  Follow the Web3 onboarding flow to get your Bitski `appId` and we will provide a pre-configured React snippet to get you going immediately.
+
+## Installation
+
+```bash
+npm i @bitski/waas-react-sdk
+```
+
+## SDK Initialization
+Bitski’s SDK uses Wagmi and Viem so you don’t have to learn new tools.  We support many chains—just use viem/chains and LoginMethods from the Bitski SDK.  A deeper dive is here.
+
+```ts
+import BitskiProvider from "@bitski/waas-react-sdk";
+import BitskiWidget from "@bitski/waas-react-sdk";
+import {LoginMethod} from "@bitski/waas-react-sdk";
+import {base, mainnet, polygon} from "viem/chains";
+
+export const Dapp = () => {
+    <BitskiProvider
+        chains={[mainnet, base, polygon]}
+        loginMethods={[LoginMethod.Email, LoginMethod.Google, LoginMethod.Wallet]}
+        config={{
+            appId: '6ee158ab-0210-4aa9-90e1-fba42b4d0d71',
+            callbackURL: new URL("../callback.html"),
+            }
+        }}
+    >
+        <BitskiWidget />
+    </BitskiProvider>
+}
+```
+
+## Callback URL
+In order for the Bitski Wagmi Connectors to work, you must provide one public callback URL with the Bitski JS SDK imported.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logging in...</title>
+    <script src="https://cdn.bitskistatic.com/js/sdk/v3.3/callback.js"></script>
+  </head>
+</html>
+```
+
+Say goodbye to the awkward authentication dance and get back to doing what you do best—building your dApp! If you're running into issues on how
+to use your Bitski Wallet, free feel to [contact us](mailto:hello@bitski.com)
+and let us know.
