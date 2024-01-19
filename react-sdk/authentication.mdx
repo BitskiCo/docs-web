@@ -1,0 +1,44 @@
+---
+title: "Authentication"
+description: "Multiple login methods, multiple chains, the tools you already use"
+---
+
+### **Chains**
+
+Bitski supports almost any EVM-based chain you would need.  We’re happy to work with you to support a different chain, [contact us](mailto:hello@bitski.com) to explore.
+
+You can directly reference the chains supplied in the `viem/chains` package.
+
+### **Login Methods**
+
+We want to allow you onboard Users who are familiar with Web3 and have wallets as well as those looking to use Web2 methods.  The React SDK comes with preconfigured Wagmi connectors to facilitate this.  Choose any of the `LoginMethod`s we provide and the SDK will configure the proper Wagmi connectors for you.
+
+Out of the box, we support:
+
+- Email (including Passkey support)
+- Google
+- Apple
+- X
+- External Wallets (MetaMask, Coinbase Wallet, WalletConnect, etc)
+
+### Connecting
+
+The SDK will handle configuring the proper Wagmi connectors based on your config.  Once a User is connected, you use existing Wagmi hooks to access the connected Connector and account information.
+
+```tsx
+import { useAccount } from 'wagmi'
+
+function Profile() {
+  const { address, chain, connector } = useAccount()
+}
+```
+
+
+### Disconnecting
+```tsx
+import { useDisconnect } from 'wagmi'
+
+function Logout() {
+  const { disconnect } = useDisconnect()
+}
+```
