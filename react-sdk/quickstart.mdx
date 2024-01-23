@@ -9,8 +9,10 @@ To get started, create an account in the Bitski Developer portal. Follow the Web
 
 ## Installation
 
+The WaaS React SDK has peer dependencies on `@tanstack/react-query`, `viem`, and `wagmi` to operate - please make sure you have these installed as well.
+
 ```bash
-npm i @bitski/waas-react-sdk
+npm i @bitski/waas-react-sdk @tanstack/react-query@^5.0.0 viem@^2.0.0 wagmi@^2.0.0
 ```
 
 ## SDK Initialization
@@ -46,6 +48,24 @@ In order for the Bitski Wagmi Connectors to work, you must provide one public ca
   </head>
 </html>
 ```
+
+## CodeSandbox
+
+[![Edit bitski-waas-react-sdk-example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/bitski-waas-react-sdk-example-5nyc6h?file=%2Fsrc%2FApp.tsx&embed=1)
+
+<iframe
+  src="https://codesandbox.io/p/devbox/bitski-waas-react-sdk-example-5nyc6h?file=%2Fsrc%2FApp.tsx&embed=1"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: 0,
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  title="bitski-waas-react-sdk-example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 Say goodbye to the awkward authentication dance and get back to doing what you do best—building your dApp! If you're running into issues on how
 to use your Bitski Wallet, free feel to [contact us](mailto:hello@bitski.com)
