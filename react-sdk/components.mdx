@@ -1,0 +1,41 @@
+---
+title: "Components"
+description: "React Components for connecting to Web3"
+---
+
+To ensure a smooth experience, place the `BitskiProvider` as high in your app's Component hierarchy as possible.  All of the following components must be children of `BitskiProvider`.
+
+### **BitskiWidget**
+A plug-and-play widget—no need to handle connection state.  When not connected, tapping will open the `BitskiAuth` component.  When a connection is established, tapping will reveal the `BitskiWalletViewer`.
+
+Prefer to use this over coordinating `BitskiAuth` and `BitskiWalletViewer` yourself.
+
+```jsx
+import { BitskiWidget } from '@bitski/waas-react-sdk';
+
+<BitskiWidget />
+```
+
+### **BitskiAuth**
+Shows a menu with all the `LoginMethod`s and `Chain`s that you've configured.  This component is not currently configurable outside of those two options.
+
+
+```jsx
+import { BitskiAuth } from '@bitski/waas-react-sdk;
+
+<BitskiAuth />
+```
+
+### **BitskiWalletViewer**
+A view of the connected Account--including Tokens and Activity based on the address / chain.  You can toggle Tokens/Activity via the `tabs` property in `BitskiProvider`.
+
+
+```jsx
+import { BitskiWalletViewer, } from '@bitski/waas-react-sdk';
+
+<BitskiWalletViewer />
+```
+
+### **Signer**
+
+Once you submit a transaction or sign  message, the Bitski signer modal will popup  This is not a Component you can directly invoke.
